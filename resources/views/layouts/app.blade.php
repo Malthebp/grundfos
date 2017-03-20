@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Scripts -->
     <script>
@@ -21,9 +22,53 @@
     </script>
 </head>
 <body>
+<div id="app">
+    <header>
+        <section>
+            @yield('headerLeft')
+        </section>
+        <section>
+            <h1>@yield('headline')</h1>
+        </section>
+        <section>
+            @yield('headerRight')
+        </section>
+    </header>
+
 
         @yield('content')
 
+
+    <nav class="bottomNav">
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <p>Home</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-folder" aria-hidden="true"></i>
+                    <p>Catalogue</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <p>Profile</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <p>Grundfos</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
     <!-- Scripts -->
     <script async src="{{ asset('js/app.js') }}"></script>
 </body>
