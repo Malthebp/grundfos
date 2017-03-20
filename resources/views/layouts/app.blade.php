@@ -33,6 +33,7 @@
         </section>
     </header>
 
+
         @yield('content')
 
 </div>
