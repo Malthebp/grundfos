@@ -11,7 +11,43 @@
 	padding: 0;
 }
 
-main#register {
+main#register, main#login, main#forgot {
 	height: 100vh;
 	background-color: $brand-primary;
+	h3 {
+		color: white;
+	    font-family: sans-serif;
+	    font-weight: 100;
+	    font-size: 1.1em;
+	    display: table;
+    	margin: 30px auto;
+	    a {
+	    	color: white;
+	    }
+	}
+	#logo {
+		width: 100%;
+		margin-bottom: 80px;
+	}
+}
+
+.form-control {
+    width: 70%;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    font-size: 1.2em;
+}
+
+#registerbtn, #loginbtn, #forgotbtn {
+	width: 70%;
+    padding: 10px 10px;
+    display: block;
+    margin: 0 auto;
+    background: $btn-default-green;
+    border: none;
+    color: $grey-verylight;
+    box-sizing: initial;
+    font-size: 1.2em;
 }

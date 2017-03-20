@@ -3,7 +3,7 @@
 @section('content')
 <main id="register">
     <form action="">
-        <img src="images/Grundfos_Logo.png" alt="">
+        <img id="logo" src="images/Grundfos_Logo.png" alt="">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -47,12 +47,11 @@
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-primary">
-                    Register
-                </button>
+                <button type="submit" id="registerbtn">Register</button>
             </div>
         </div>
     </form>
+    <h3 id="reg-login">Already registered? <a href="login">Login here</a>.</h3>
 </main>
 
 <!--
