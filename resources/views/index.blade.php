@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('headerLeft')
-	<i class="fa fa-arrow-left" aria-hidden="true"></i>
 @endsection
 
 @section('headline')
@@ -9,7 +8,6 @@
 @endsection
 
 @section('headerRight')
-	<i class="fa fa-pencil" aria-hidden="true"></i>
 @endsection
 
 @section('content')
@@ -101,7 +99,8 @@
 	</section>
 </main>
 
+@endsection
 
-
-
+@section('navigation')
+	@include('layouts.navigation')
 @endsection

@@ -42,6 +42,7 @@ p {
 }
 
 
+/*HEADER*/
 header {
 	width: 100%;
 	height: 50px;
@@ -50,7 +51,7 @@ header {
 	text-align: center;
 	display: table;
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1rem;
 		line-height: 3.2rem;
 	}
 	section:nth-child(1) {
@@ -58,7 +59,7 @@ header {
 		text-align: left;
 		padding-left: 5%;
 		i {
-			font-size: 1.3rem;
+			font-size: 1rem;
 		}
 	}
 	section:nth-child(2) {
@@ -82,6 +83,7 @@ header {
 }
 
 
+/*SEARBAR*/
 .search {
 	width: 100%;
 	background: $grey-lightmid;
@@ -102,6 +104,7 @@ header {
 	}
 }
 
+/*ADD NEW PUMP AND CLLIENT*/
 .addNew {
 	width: 100%;
 	display: table;
@@ -127,6 +130,7 @@ header {
 
 }
 
+/*BOTTOM NAVIGATION*/
 nav.bottomNav {
 	position: fixed;
 	bottom: 0;
@@ -158,6 +162,8 @@ nav.bottomNav {
 	}
 }
 
+
+/*SEARCH RESULT FOR CATEFGORY*/
 .searchResultCategory {
 	margin-top: 15px;
 	h2 {
@@ -202,6 +208,55 @@ nav.bottomNav {
 				font-size: 0.6rem;
 			}
 		}
+	}
+}
+
+
+/*ADD NEW PUMP FORM*/
+.createForm {
+	section {
+		display: table;
+		width: 95%;
+		margin: 0px auto;
+		padding: 15px 0px;
+		border-bottom: 1px solid $grey-lightmid;
+		div:first-child {
+			width: 18%;
+			font-size: 2rem;
+		}
+		div:last-child {
+			width: 76%;
+		}
+		div {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0% 1%;
+		}
+		label {
+			text-transform: uppercase;
+			display: block;
+			width: 100%;
+			margin-bottom: 3px;
+		}
+		input, select {
+			width: 90%;
+			padding: 7px;
+			border: 1px solid $grey-lightmid;
+		}
+		input[type=file]{
+			border: 1px dashed $grey-dark;
+			opacity: 0;
+		}
+	}
+	button {
+		width: 100%;
+		background-color: $btn-default-green;
+		border: none;
+		color: $grey-verylight;
+		padding: 5px 0px;
+		position: absolute;
+		bottom: 0;
+		left:0;
 	}
 }
 

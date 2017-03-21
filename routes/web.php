@@ -22,11 +22,19 @@ Route::get('/index', function () {
     return view('index');
 });
 
+
+Route::get('/back', 'GeneralController@redirectBack');
+
 // Route::get('/pumpcreate', 'PumpController@createPumps');
 // Route::get('/pumps', 'PumpController@getPumps');
 // Route::post('/pumpcreate/store', 'PumpController@store');
 
+//Create new pump
 Route::get('/newpump', 'NewPumpController@index');
+Route::post('/newpump/create', 'NewPumpController@store');
+
+//pumpage
+Route::get('/userpump/{id}', 'UPumpController@getPump');
 
 
 Route::get('/catalogue', 'CatalogueController@index');
@@ -37,6 +45,9 @@ Route::get('/catalogue/{id}', 'CatalogueController@getCategory');
 Route::get('/catalogue', function () {
     return view('catalogue');
 });
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 53fbb6b9119de6d7b85c2790d315705948da9684
 
 Route::get('/home', 'HomeController@index');
