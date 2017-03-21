@@ -17,9 +17,9 @@ class CreateUpumpsTable extends Migration
             $table->increments('id');
             $table->string('model');
             $table->string('imagepath');
-            $table->integer('pumpID');
-            $table->integer('userID');
-            $table->integer('clientID');
+            $table->integer('pump_id');
+            $table->integer('user_id');
+            $table->integer('client_id');
             $table->string('description');
             $table->integer('year');
             $table->string('pumpAddress');
