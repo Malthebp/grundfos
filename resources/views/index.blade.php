@@ -4,7 +4,7 @@
 @endsection
 
 @section('headline')
-	Home
+Home
 @endsection
 
 @section('headerRight')
@@ -14,9 +14,10 @@
 <main id="withMargin">
 	<section class="search">
 		<div>
-			<input type="" name="" placeholder="Search...">
-			<span><i class="fa fa-search" aria-hidden="true"></i>
-			</span>
+			<form action="search">
+				<input type="" name="search" placeholder="Search...">
+				<span><i class="fa fa-search" aria-hidden="true"></i></span>
+			</form>
 		</div>
 	</section> 
 
@@ -43,7 +44,7 @@
 				<p>Sønderhøj 30, 8260 Viby J</p>
 			</div>
 		</article>
-				<article>
+		<article>
 			<div>
 				<i class="icon-gr-social-users"></i>
 			</div>
@@ -52,7 +53,7 @@
 				<p>Sønderhøj 30, 8260 Viby J</p>
 			</div>
 		</article>
-				<article>
+		<article>
 			<div>
 				<i class="icon-gr-social-users"></i>
 			</div>
@@ -74,7 +75,7 @@
 				<p>APHA3 15-80 130</p>
 				<p class="location">Ringvejsyd 104, 8260 Viby J</p>
 			</div>
-		
+
 		</article>
 		<article>
 			<div>
@@ -102,5 +103,5 @@
 @endsection
 
 @section('navigation')
-	@include('layouts.navigation')
+@include('layouts.navigation')
 @endsection

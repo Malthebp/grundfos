@@ -19,6 +19,7 @@ class CatalogueController extends Controller
 
     	$category = Category::with('Pump')->where('id', $id)->get();
 
+
     	return view ('catalogue/category', ['category' => $category]);
     	 //return json_decode($category);
     }

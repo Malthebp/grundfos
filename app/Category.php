@@ -8,6 +8,6 @@ use App\Pump;
 class Category extends Model
 {
     public function pump () {
-    	return $this->belongsToMany('App\Pump');
+    	return $this->hasMany('App\Pump');
     }
 }
