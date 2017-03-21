@@ -2,25 +2,25 @@
         <ul>
             <li>
                 <a href="#">
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="icon-gr-home" aria-hidden="true"></i>
                     <p>Home</p>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-folder" aria-hidden="true"></i>
+                    <i class="icon-gr-folder" aria-hidden="true"></i>
                     <p>Catalogue</p>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="icon-gr-user" aria-hidden="true"></i>
                     <p>Profile</p>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <img src="images/logo-icon.png">
                     <p>Grundfos</p>
                 </a>
             </li>

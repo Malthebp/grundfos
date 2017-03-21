@@ -50,6 +50,9 @@ header {
 	color: $grey-light;
 	text-align: center;
 	display: table;
+	a {
+		color: $grey-verylight;
+	}
 	h1 {
 		font-size: 1rem;
 		line-height: 3.2rem;
@@ -156,6 +159,12 @@ nav.bottomNav {
 				p {
 					text-align: center;
 					font-size:0.8rem;
+				}
+				img {
+					height: auto;
+				    width: 31px;
+				    margin: 0 auto;
+				    display: block;
 				}
 			}
 		}

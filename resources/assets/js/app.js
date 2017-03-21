@@ -12,7 +12,6 @@
  */
 
 Vue.component('example', require('./components/Example.vue'));
-Vue.component('redirect-back', require('./components/RedirectBack.vue'));
 
 const app = new Vue({
     el: '#app'

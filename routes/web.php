@@ -33,9 +33,16 @@ Route::get('/back', 'GeneralController@redirectBack');
 Route::get('/newpump', 'NewPumpController@index');
 Route::post('/newpump/create', 'NewPumpController@store');
 
-//pumpage
+//pumppage
 Route::get('/userpump/{id}', 'UPumpController@getPump');
 
+
+//New client
+Route::get('/newclient', 'NewClientController@newClient');
+Route::post('/newclient/create', 'NewClientController@store');
+
+//Clientpage
+Route::get('/client({id}', 'ClientController@index');
 
 Route::get('/catalogue', 'CatalogueController@index');
 
