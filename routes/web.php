@@ -39,6 +39,8 @@ Route::get('/userpump/{id}', 'UPumpController@getPump');
 
 Route::get('/catalogue', 'CatalogueController@index');
 
+Route::get('/pump/{id}', 'PumpController@getPump');
+
 Route::get('/catalogue/{id}', 'CatalogueController@getCategory');
 
 /*
