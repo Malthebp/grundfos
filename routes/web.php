@@ -22,6 +22,10 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/catalogue', function () {
+    return view('catalogue');
+});
+
 Route::get('/pumpcreate', 'PumpController@createPumps');
 Route::get('/pumps', 'PumpController@getPumps');
 Route::post('/pumpcreate/store', 'PumpController@store');
