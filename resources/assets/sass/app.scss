@@ -174,21 +174,24 @@ nav.bottomNav {
 		border-top: 1px solid $grey-lightmid;
 		padding: 10px;
 		display: table;
+		i {
+			font-size: 1.5rem;
+		}
 		div:first-child {
+			width: 12%;
 			img {
+				display: block;
 				width: 100%;
 				height: auto;
-				display: block;
 			}
-			width: 8%;
 		}
 		div:last-child {
-			width: 88%;
+			width: 78%;
 		}
 		div {
 			display: inline-block;
 			vertical-align: middle;
-			margin: 0% 1%;
+			margin: 0% 2%;
 			h3 {
 				font-size: 1rem;
 			}

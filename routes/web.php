@@ -22,8 +22,10 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/pumpcreate', 'PumpController@createPumps');
-Route::get('/pumps', 'PumpController@getPumps');
-Route::post('/pumpcreate/store', 'PumpController@store');
+// Route::get('/pumpcreate', 'PumpController@createPumps');
+// Route::get('/pumps', 'PumpController@getPumps');
+// Route::post('/pumpcreate/store', 'PumpController@store');
+
+Route::get('/newpump', 'NewPumpController@index');
 
 Route::get('/home', 'HomeController@index');
