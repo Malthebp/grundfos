@@ -208,13 +208,12 @@ main .categories {
 	article.category {
 		padding: 15px 10px;
 	}
-	div.icon {
-		width: 13%;
-		margin: 0 1%;
+	div[class^="icon"] {
+		font-size: 41px;
 	}
 	div.description {
-		width: 82%;
-		margin: 0 1% 0 2%;
+		width: 80%;
+    	margin: 0 1% 0 8%;
 	}
 }
 
