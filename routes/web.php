@@ -28,4 +28,9 @@ Route::get('/index', function () {
 
 Route::get('/newpump', 'NewPumpController@index');
 
+Route::get('/catalogue', function () {
+    return view('catalogue');
+});
+
+
 Route::get('/home', 'HomeController@index');
