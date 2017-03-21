@@ -28,7 +28,7 @@
 			<p>Client</p>
 		</div>
 		<div>
-			<i class="fa fa-plus-circle" aria-hidden="true"></i>
+			<i class="icon-gr-plus-circle" aria-hidden="true"></i>
 			<p>Pump</p>
 		</div>
 	</section>
@@ -38,7 +38,7 @@
 		<h2>Clients</h2>
 		<article>
 			<div>
-				<img src="images/client.png">
+				<i class="icon-gr-social-users"></i>
 			</div>
 			<div>
 				<h3>Erhvervsakademi Aarhus</h3>
@@ -47,7 +47,7 @@
 		</article>
 				<article>
 			<div>
-				<img src="images/client.png">
+				<i class="icon-gr-social-users"></i>
 			</div>
 			<div>
 				<h3>Erhvervsakademi Aarhus</h3>
@@ -56,7 +56,7 @@
 		</article>
 				<article>
 			<div>
-				<img src="images/client.png">
+				<i class="icon-gr-social-users"></i>
 			</div>
 			<div>
 				<h3>Erhvervsakademi Aarhus</h3>
