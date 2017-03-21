@@ -45,9 +45,6 @@ Route::get('/catalogue/{id}', 'CatalogueController@getCategory');
 Route::get('/catalogue', function () {
     return view('catalogue');
 });
-<<<<<<< HEAD
 */
-=======
->>>>>>> 53fbb6b9119de6d7b85c2790d315705948da9684
 
 Route::get('/home', 'HomeController@index');
