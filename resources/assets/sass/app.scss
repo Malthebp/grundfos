@@ -1,6 +1,8 @@
 
 //Icon fonts
 @import "grundfos_generic_icons";
+@import "animation";
+
 // Variables
 @import "variables";
 
@@ -20,6 +22,10 @@ body {
 	color: $text-color;
 	font-family: $font-family-sans-serif;
 	background: $grey-verylight;
+}
+
+h1, h2, h3, h4, h5, h5 {
+	font-weight: normal;
 }
 
 h1 {
@@ -229,6 +235,9 @@ nav.bottomNav {
 		margin: 0px auto;
 		padding: 15px 0px;
 		border-bottom: 1px solid $grey-lightmid;
+		i {
+			color: $brand-secondary;
+		}
 		div:first-child {
 			width: 18%;
 			font-size: 2rem;
@@ -257,7 +266,7 @@ nav.bottomNav {
 			opacity: 0;
 		}
 	}
-	button {
+	button.buttonBottom {
 		width: 100%;
 		background-color: $btn-default-green;
 		border: none;
@@ -269,6 +278,91 @@ nav.bottomNav {
 	}
 }
 
+/*Area for adding new pump or chosing existing in client*/
+.addArea {
+	border: 1px dashed $grey;
+	padding: 10px 0px;
+	width: 95%;
+	margin: 15px auto;
+	display: flex;
+    flex-flow: column;
+    align-items: center;
+	i {
+		color: $btn-default-green;
+		font-size: 2rem;	
+	}
+	div {
+		width: 35px;
+		height: 35px;
+		background-color: $btn-default-green;
+		border-radius: 50%;
+		i {
+			color: $grey-verylight;
+			font-size: 1rem;
+		}
+	}
+}
+
+/*Modal*/
+
+.modal {
+	bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1986;
+}
+
+.isActive {
+   	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.modalBackground {
+	bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.86);
+}
+
+.modalContent {
+    margin: 0 20px;
+    max-height: calc(100vh - 160px);
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    .box {
+	    background-color: white;
+	    border-radius: 5px;
+	    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+	    display: block;
+	    padding: 1.25rem;
+	}
+}
+
+/*Tables*/
+table {
+    background-color: white;
+    color: #363636;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
 /* Categories */
 
 main .categories {

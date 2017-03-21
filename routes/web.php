@@ -33,13 +33,20 @@ Route::get('/back', 'GeneralController@redirectBack');
 Route::get('/newpump', 'NewPumpController@index');
 Route::post('/newpump/create', 'NewPumpController@store');
 
-//pumppage
+//Userpumps
 Route::get('/userpump/{id}', 'UPumpController@getPump');
+Route::get('/userpumps/getall/{id}', 'UPumpController@getAllUpumpsfromUser');
 
 
 //New client
 Route::get('/newclient', 'NewClientController@newClient');
 Route::post('/newclient/create', 'NewClientController@store');
+
+//Clients
+Route::get('/client/{id}', 'ClientController@index');
+Route::get('/client/get/{id}', 'ClientController@getClient');
+Route::patch('/client/update/{id}', 'ClientController@update');
+Route::get('/client/delete/{id}', 'ClientController@delete');
 
 //Clientpage
 Route::get('/client({id}', 'ClientController@index');
