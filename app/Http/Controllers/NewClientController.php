@@ -10,7 +10,7 @@ class NewClientController extends Controller
 {
     public function newClient()
     {
-    	return view('newclient');
+    	return view('client.newclient');
     }
 
     public function store(Request $request)

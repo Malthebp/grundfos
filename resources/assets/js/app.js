@@ -12,6 +12,7 @@
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('client', require('./components/Client.vue'));
 
 const app = new Vue({
     el: '#app'

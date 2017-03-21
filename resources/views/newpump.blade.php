@@ -69,7 +69,7 @@
 			</div>
 		</section>
 
-		<button type="submit">
+		<button type="submit" class="buttonBottom">
 			<i class="icon-gr-check"></i>
 			<div>
 				Add Pump

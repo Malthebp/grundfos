@@ -10,4 +10,9 @@ class Pump extends Model
     public function category () {
     	return $this->belongsTo('App\Category');
     }
+
+    public function upump()
+    {
+    	return $this->hasMany('App\Upump');
+    }
 }

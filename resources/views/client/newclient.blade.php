@@ -62,7 +62,8 @@
 				<input type="text" name="description" placeholder="Ex. Call 10 min before arrival" id="description">
 			</div>
 		</section>
-		<button type="submit">
+
+		<button type="submit" class="buttonBottom">
 			<i class="icon-gr-check"></i>
 			<div>
 				Add client
