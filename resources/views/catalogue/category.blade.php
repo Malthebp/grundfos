@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+@section('headerLeft')
+    <a href="{{URL::previous()}}">
+		<i class=" icon-gr-left-angle" aria-hidden="true"></i>
+	</a>
+@endsection
 @section('headline')
 Pumps
 @endsection
@@ -30,4 +34,4 @@ Pumps
 	</section>
 
 </main>
-@endsection
+@endsection 

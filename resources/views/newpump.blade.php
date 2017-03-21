@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('headerLeft')
-	<i class=" icon-gr-left-angle" aria-hidden="true"></i>
+	<a href="{{URL::previous()}}">
+        <i class=" icon-gr-left-angle" aria-hidden="true"></i>
+    </a>
 @endsection
 
 @section('headline')

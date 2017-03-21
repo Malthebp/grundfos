@@ -25,3 +25,8 @@ Catalogue
 
 </main>
 @endsection
+
+
+@section('navigation')
+    @include('layouts.navigation')
+@endsection
