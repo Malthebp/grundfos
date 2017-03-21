@@ -11,9 +11,9 @@
 	padding: 0px;
 	margin: 0px;
 	-webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
 }
 
 body {
@@ -168,9 +168,9 @@ nav.bottomNav {
 				}
 				img {
 					height: auto;
-				    width: 31px;
-				    margin: 0 auto;
-				    display: block;
+					width: 31px;
+					margin: 0 auto;
+					display: block;
 				}
 			}
 		}
@@ -376,7 +376,7 @@ main .categories {
 	}
 	div.description {
 		width: 78%;
-    	margin: 0 1% 0 0%;
+		margin: 0 1% 0 0%;
 	}
 }
 
@@ -389,14 +389,14 @@ main#register, main#login, main#forgot {
 	background-color: $brand-primary;
 	h3 {
 		color: white;
-	    font-family: sans-serif;
-	    font-weight: 100;
-	    font-size: 1.1em;
-	    display: table;
-    	margin: 30px auto;
-	    a {
-	    	color: white;
-	    }
+		font-family: sans-serif;
+		font-weight: 100;
+		font-size: 1.1em;
+		display: table;
+		margin: 30px auto;
+		a {
+			color: white;
+		}
 	}
 	#logo {
 		width: 100%;
@@ -405,24 +405,24 @@ main#register, main#login, main#forgot {
 }
 
 .form-control {
-    width: 70%;
-    display: block;
-    margin: 20px auto;
-    padding: 10px;
-    border: none;
-    font-size: 1.2em;
+	width: 70%;
+	display: block;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	font-size: 1.2em;
 }
 
 #registerbtn, #loginbtn, #forgotbtn {
 	width: 70%;
-    padding: 10px 10px;
-    display: block;
-    margin: 0 auto;
-    background: $btn-default-green;
-    border: none;
-    color: $grey-verylight;
-    box-sizing: initial;
-    font-size: 1.2em;
+	padding: 10px 10px;
+	display: block;
+	margin: 0 auto;
+	background: $btn-default-green;
+	border: none;
+	color: $grey-verylight;
+	box-sizing: initial;
+	font-size: 1.2em;
 }
 
 /* Pumps */
@@ -430,5 +430,61 @@ main#register, main#login, main#forgot {
 .pump section {
 	img {
 		width: 100%;
+		border-bottom: 1px solid #dedede;
+	}
+	article {
+		width: 95%;
+		margin: 0 auto;
+	}
+	h3 {
+		font-size: 1.3rem;
+		margin: 6px 0;
+	}
+	details {
+		background-color: $brand-primary;
+		color: white;
+
+	}
+
+	.expandable {
+		display: block;
+		width: 95%;
+		margin: 10px auto;
+		border: 1px solid $brand-primary;
+		background-color: $brand-primary;
+		[class^="icon-gr-"]:before, [class*=" icon-gr-"]:before {
+			margin-right: .6em;
+		}
+		h4 {
+			padding: 5px;
+			background-color: $brand-primary;
+			color: $grey-verylight;
+			width: 89%;
+			display: inline-block;
+		}
+		.text-left {
+			display: inline-block;
+			width: 92%;
+		}
+		.icon-right {
+			width: 5%;
+			display: inline-block;
+			color: $grey-verylight;
+		}
+		.dropdown-content {
+			display: none;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			padding: 12px 0px 12px 16px;
+			border-bottom: 1px solid $grey-lightmid;
+			.icon-right {
+				width: 5%;
+				display: inline-block;
+				color: $brand-primary;
+			}
+		}
+	}
+	.expandable:hover .dropdown-content {
+		display: block;
 	}
 }
