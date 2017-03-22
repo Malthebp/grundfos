@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+use App\Upump;
 class ClientController extends Controller
 {
     public function index($id)

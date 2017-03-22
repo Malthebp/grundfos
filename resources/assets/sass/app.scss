@@ -157,6 +157,9 @@ nav.bottomNav {
 				text-decoration: none;
 				padding: 10px 0px;
 				display: block;
+				&.active {
+					color: $brand-secondary;
+				}
 				i {
 					text-align: center;
 					display: block;
@@ -229,6 +232,10 @@ nav.bottomNav {
 
 /*ADD NEW PUMP FORM*/
 .createForm {
+	a {
+		text-decoration: none;
+		color: $grey-dark;
+	}
 	section {
 		display: table;
 		width: 95%;
@@ -345,11 +352,27 @@ nav.bottomNav {
     width: 100%;
     .box {
 	    background-color: white;
-	    border-radius: 5px;
 	    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 	    display: block;
 	    padding: 1.25rem;
 	}
+}
+
+/*BTNS*/
+
+.btn {
+	display: inline-block;
+	border: none;
+	padding: 10px;
+}
+
+.btn-success {
+	background-color: $btn-default-green;
+	color: $grey-verylight;
+}
+
+.btn-default {
+	background-color: $grey-lightmid;
 }
 
 /*Tables*/
@@ -362,6 +385,11 @@ table {
 
 table tbody tr:nth-child(even) {
     background-color: #fafafa;
+}
+
+table tbody tr {
+	margin: 10px 0px;
+	display: block;
 }
 /* Categories */
 

@@ -18,9 +18,23 @@ class UPumpController extends Controller
     public function getAllUpumpsfromUser($id)
     {
     	$pumps = User::find($id)->upumps()->get();
-
+        
     	return response()->json([
     			'upumps' => $pumps
     		]);
+    }
+
+    public function attachUPump(Request $request)
+    {
+        $upumpid = $request->upumpid;
+        $upump = Upump::find($upumpid);
+        $upump->client_id = $request->clientid;
+        $upump->save();
+
+        return response()->json([
+                'message' => 'Pump added',
+                'pumpid' => $upump,
+                'clientid' => $request->clientid
+            ]);
     }
 }

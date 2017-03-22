@@ -50,11 +50,14 @@
 				<h4 v-if="!edit">{{formUpdate.description}}</h4>
 			</div>
 		</section>
-
-		<div class="addArea">
-			<i class="icon-gr-plus-circle"></i>
-			<p>Add new pump</p>
-		</div>
+		<a href="/newpump">
+			<div class="addArea">
+				
+					<i class="icon-gr-plus-circle"></i>
+					<p>Add new pump</p>
+				
+			</div>
+		</a>
 		<div class="addArea" @click="modal">
 			<i class="icon-gr-plus-circle"></i>
 			<p>Add existing pump</p>
@@ -87,11 +90,21 @@
 		    			</tr>
 		    		</thead>
 		    		<tbody>
-		    			<userpump v-for="upump in userpumps" v-bind:upump="upump"></userpump>
+		    			<userpump v-for="upump in userpumps.upumps" v-bind:upump="upump"
+		    			v-on:chosen-upump="selectedPump" v-model="chosen"
+		    			></userpump>
 		    		</tbody>
 		    	</table>
 		    	
-		    	<button @click="modal">Close </button>
+		    	<button class="btn btn-default" @click="modal">Close </button>
+		    	<button class="btn btn-success" @click="attachUPump">
+		    	<span v-if="isLoading">
+					<i class="icon-gr-clockwise animate-spin"></i>
+				</span>
+				<span v-if="!isLoading">
+					Chose pump
+				</span>
+		    	</button>
 		    </div>
 		  </div>
 		  <button class="modal-close"></button>
@@ -118,11 +131,23 @@
 				message: '',
 				isLoading: false,
 				active: false,
-				userpumps: []
+				userpumps: [],
+				chosen: ''
 			}
 		}, 
 		methods: {
+			selectedPump: function (upump) {
+				this.chosen = upump.id;
+			},
+			attachUPump: function () {
+				this.isLoading = true;
+				axios.post('/client/upump/attach', {'upumpid': this.chosen, 'clientid': this.clientid}).then(response => {
+						this.active = false;
+						this.isLoading = false;
+				});
+			},
 			getClient: function () {
+				
 				axios.get('/client/get/' + this.clientid).then(response => {
 					this.formUpdate.name = response.data.client.name;
 					this.formUpdate.address = response.data.client.address;
@@ -147,7 +172,6 @@
 			update: function () {
 				this.isLoading = true;
 				axios.patch('/client/update/' + this.clientid, this.formUpdate).then(response =>{
-						console.log(response.data);
 						this.message = response.data.message;
 						this.edit = false;
 						this.isLoading = false;

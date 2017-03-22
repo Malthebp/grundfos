@@ -1,19 +1,19 @@
    <nav class="bottomNav">
         <ul>
             <li>
-                <a href="/index">
+                <a href="/index" {{ (Request::is('index') ? 'class=active' : '') }}>
                     <i class="icon-gr-home" aria-hidden="true"></i>
                     <p>Home</p>
                 </a>
             </li>
             <li>
-                <a href="/catalogue">
+                <a href="/catalogue" {{ (Request::is('catalogue') ? 'class=active' : '') }}>
                     <i class="icon-gr-folder" aria-hidden="true"></i>
                     <p>Catalogue</p>
                 </a>
             </li>
             <li>
-                <a href="/profile">
+                <a href="/profile" {{ (Request::is('profile') ? 'class=active' : '') }}>
                     <i class="icon-gr-user" aria-hidden="true"></i>
                     <p>Profile</p>
                 </a>

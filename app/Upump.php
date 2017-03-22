@@ -13,4 +13,14 @@ class Upump extends Model
     {
     	return $this->belongsTo('App\Client');
     }
+
+    public function pump()
+    {
+    	return $this->belongsTo('App\Pump');
+    }
+
+    public function users()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }
