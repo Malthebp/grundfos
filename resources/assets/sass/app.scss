@@ -95,11 +95,12 @@ header {
 /*SEARBAR*/
 .search {
 	width: 100%;
-	background: $grey-lightmid;
+	background: $brand-tertiary;
 	div	{
 		padding: 7px;
 		position: relative;
 		input {
+			background-color: $grey-light;
 			padding: 7px 7px 7px 30px;
 			border: 1px solid $grey-light;
 			box-sizing: border-box;
@@ -113,31 +114,7 @@ header {
 	}
 }
 
-/*ADD NEW PUMP AND CLLIENT*/
-.addNew {
-	width: 100%;
-	display: table;
-	padding: 10px 0px;
-	border-bottom: 1px solid $grey-lightmid;
-	div:first-child {
-		border-right: 1px solid $grey-lightmid;
-	}
-	div {
-		width: 50%;
-		display: inline-block;
-		box-sizing: border-box;
-		i {
-			text-align: center;
-			display: block;
-			font-size: 1.8rem;
-			color: $btn-default-green;
-		}
-		p {
-			text-align: center;
-		}
-	}
 
-}
 
 /*BOTTOM NAVIGATION*/
 nav.bottomNav {
@@ -168,7 +145,7 @@ nav.bottomNav {
 				}
 				img {
 					height: auto;
-					width: 31px;
+					width: 39%;
 					margin: 0 auto;
 					display: block;
 				}
@@ -194,20 +171,19 @@ nav.bottomNav {
 	article {
 		border-top: 1px solid $grey-lightmid;
 		padding: 10px;
-		display: table;
+		display: flex;
+    	flex-direction: row;
+    	justify-content: space-between;
 		i {
 			font-size: 1.5rem;
 		}
 		div:first-child {
-			width: 12%;
+			display: inline-block;
+			width:12%;
 			img {
-				display: block;
 				width: 100%;
 				height: auto;
 			}
-		}
-		div:last-child {
-			width: 78%;
 		}
 		div {
 			display: inline-block;
@@ -226,6 +202,39 @@ nav.bottomNav {
 	}
 }
 
+.select-cat-btn {
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+  	color: white;
+  	font-size: 15px;
+  	background: #8cbbdd;
+  	padding: 10px 10px 10px 10px;
+  		i {
+  		font-size:1.0rem !important;
+  		}
+}
+
+/*ADD NEW PUMP AND CLIENT*/
+.addNew {
+	justify-content: center;
+	align-items: center;
+	padding: 5px 0px;
+	outline: 2px dashed $grey;
+	width:97% !important;
+	text-align:center;
+	color: $grey-verydark;
+		i {
+		color: $brand-success;
+		}
+		div {
+		width: 50%;
+		box-sizing: border-box;
+			p {
+			text-align: center;
+			}
+		}	
+}
 
 /*ADD NEW PUMP FORM*/
 .createForm {
