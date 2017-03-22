@@ -183,9 +183,25 @@ nav.bottomNav {
 		div:first-child {
 			display: inline-block;
 			width:12%;
+			a {
+				color: $grey-dark;
+			}
 			img {
 				width: 100%;
 				height: auto;
+			}
+		}
+		div:nth-child(2){
+			width: 64%;
+			a {
+				color: $grey-dark;
+				text-decoration: none;
+			}
+		}
+		div:nth-child(3) {
+			width: 12%;
+			a {
+				color: $grey-verylight;
 			}
 		}
 		div {
@@ -227,6 +243,10 @@ nav.bottomNav {
 	width:97% !important;
 	text-align:center;
 	color: $grey-verydark;
+	a {
+		text-decoration: none;
+		color: $grey-dark;
+	}
 		i {
 		color: $brand-success;
 		}

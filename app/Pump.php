@@ -15,6 +15,11 @@ class Pump extends Model
     	return $this->belongsToMany('App\Issue');
     }
 
+    public function upumps()
+    {
+        return $this->hasMany('App\Upump');
+    }
+
     public function tool() {
     	return $this->belongsToMany('App\Tool');
     }

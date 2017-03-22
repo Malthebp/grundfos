@@ -24,6 +24,15 @@ class UPumpController extends Controller
     		]);
     }
 
+    public function getAllUserPumps($id)
+    {
+        $userpumps = Upump::with('Pump')->where('user_id', $id)->get();
+
+        return response()->json([
+            'userpumps' => $userpumps
+        ]);
+    }
+
     public function attachUPump(Request $request)
     {
         $upumpid = $request->upumpid;

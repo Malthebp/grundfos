@@ -47,4 +47,14 @@ class ClientController extends Controller
     	$client->delete();
     	return redirect('/index');
     }
-}
+
+    public function getAllClients($id)
+    {
+        
+        $clients = Client::where('user_id', $id)->get();
+
+        return response()->json([
+                'clients' => $clients
+            ]);
+    }
+}   
