@@ -1,7 +1,7 @@
 <template>
 	<section class="searchResultCategory">
 		<h2>Pumps</h2>
-		<article>
+		<article class="results">
 			<div class="addNew">
 				<a href="/newpump">
 					<i class="icon-gr-plus-circle"></i>
@@ -9,7 +9,7 @@
 				</a>
 			</div>
 		</article>
-		<article v-for="userpump in userpumps">
+		<article class="results" v-for="userpump in userpumps">
 			<div>
 				<a :href="'/userpump/'+ userpump.id">
 					<img src="images/alpha3.jpg">
