@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(8);
+var bind = __webpack_require__(9);
 
 /*global toString:true*/
 
@@ -374,13 +374,66 @@ module.exports = {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  scopeId,
+  cssModules
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  // inject cssModules
+  if (cssModules) {
+    var computed = options.computed || (options.computed = {})
+    Object.keys(cssModules).forEach(function (key) {
+      var module = cssModules[key]
+      computed[key] = function () { return module }
+    })
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(26);
+var normalizeHeaderName = __webpack_require__(27);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -397,10 +450,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(4);
+    adapter = __webpack_require__(5);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(4);
+    adapter = __webpack_require__(5);
   }
   return adapter;
 }
@@ -471,10 +524,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -660,72 +713,25 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  scopeId,
-  cssModules
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  // inject cssModules
-  if (cssModules) {
-    var computed = options.computed || (options.computed = {})
-    Object.keys(cssModules).forEach(function (key) {
-      var module = cssModules[key]
-      computed[key] = function () { return module }
-    })
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
+module.exports = __webpack_require__(13);
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(18);
-var buildURL = __webpack_require__(21);
-var parseHeaders = __webpack_require__(27);
-var isURLSameOrigin = __webpack_require__(25);
-var createError = __webpack_require__(7);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(20);
+var settle = __webpack_require__(19);
+var buildURL = __webpack_require__(22);
+var parseHeaders = __webpack_require__(28);
+var isURLSameOrigin = __webpack_require__(26);
+var createError = __webpack_require__(8);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(21);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -821,7 +827,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(23);
+      var cookies = __webpack_require__(24);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -895,10 +901,10 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -924,7 +930,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -936,13 +942,13 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(17);
+var enhanceError = __webpack_require__(18);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -960,7 +966,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -978,7 +984,41 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(32),
+  /* template */
+  __webpack_require__(39),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\Userpump.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Userpump.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6e6d7931", Component.options)
+  } else {
+    hotAPI.reload("data-v-6e6d7931", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -987,45 +1027,42 @@ module.exports = function bind(fn, thisArg) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-var Vue = __webpack_require__(38);
+var Vue = __webpack_require__(41);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(33));
-Vue.component('client', __webpack_require__(32));
-Vue.component('users-clients', __webpack_require__(44));
-Vue.component('users-pumps', __webpack_require__(48));
+Vue.component('example', __webpack_require__(35));
+Vue.component('client', __webpack_require__(34));
+
+Vue.component('pumppage', __webpack_require__(36));
+
+Vue.component('users-clients', __webpack_require__(49));
+Vue.component('users-pumps', __webpack_require__(50));
 
 var app = new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(12);
-
-/***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(8);
-var Axios = __webpack_require__(14);
-var defaults = __webpack_require__(1);
+var bind = __webpack_require__(9);
+var Axios = __webpack_require__(15);
+var defaults = __webpack_require__(2);
 
 /**
  * Create an instance of Axios
@@ -1058,15 +1095,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(5);
-axios.CancelToken = __webpack_require__(13);
-axios.isCancel = __webpack_require__(6);
+axios.Cancel = __webpack_require__(6);
+axios.CancelToken = __webpack_require__(14);
+axios.isCancel = __webpack_require__(7);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(28);
+axios.spread = __webpack_require__(29);
 
 module.exports = axios;
 
@@ -1075,13 +1112,13 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(5);
+var Cancel = __webpack_require__(6);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1139,18 +1176,18 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(1);
+var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(15);
-var dispatchRequest = __webpack_require__(16);
-var isAbsoluteURL = __webpack_require__(24);
-var combineURLs = __webpack_require__(22);
+var InterceptorManager = __webpack_require__(16);
+var dispatchRequest = __webpack_require__(17);
+var isAbsoluteURL = __webpack_require__(25);
+var combineURLs = __webpack_require__(23);
 
 /**
  * Create a new instance of Axios
@@ -1231,7 +1268,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1290,16 +1327,16 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(19);
-var isCancel = __webpack_require__(6);
-var defaults = __webpack_require__(1);
+var transformData = __webpack_require__(20);
+var isCancel = __webpack_require__(7);
+var defaults = __webpack_require__(2);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1376,7 +1413,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1402,13 +1439,13 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(7);
+var createError = __webpack_require__(8);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1434,7 +1471,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1461,7 +1498,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1504,7 +1541,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1579,7 +1616,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1598,7 +1635,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1658,7 +1695,7 @@ module.exports = (
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1679,7 +1716,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1754,7 +1791,7 @@ module.exports = (
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1773,7 +1810,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1817,7 +1854,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1851,14 +1888,14 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Userpump__);
 //
 //
@@ -1977,7 +2014,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['clientid', 'userid'],
 	components: { userpump: __WEBPACK_IMPORTED_MODULE_1__Userpump___default.a },
 	data: function data() {
@@ -2057,36 +2094,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.getClient();
 		this.getPumps();
 	}
-};
-
-/***/ }),
-/* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-};
+});
 
 /***/ }),
 /* 31 */
@@ -2104,30 +2112,295 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['upump'],
 	data: function data() {
 		return {};
 	},
 	methods: {}
-};
+});
 
 /***/ }),
-/* 32 */
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Userpump__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['pumpid', 'userid'],
+	components: { userpump: __WEBPACK_IMPORTED_MODULE_1__Userpump___default.a },
+	data: function data() {
+		return {
+			edit: false,
+			formUpdate: {
+				name: '',
+				address: '',
+				year: '',
+				description: ''
+			},
+			message: '',
+			isLoading: false,
+			active: false,
+			userpumps: [],
+			chosen: ''
+		};
+	},
+	methods: {
+		selectedPump: function selectedPump(upump) {
+			this.chosen = upump.id;
+		},
+		attachUPump: function attachUPump() {
+			var _this = this;
+
+			this.isLoading = true;
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/client/upump/attach', { 'upumpid': this.chosen, 'clientid': this.clientid }).then(function (response) {
+				_this.active = false;
+				_this.isLoading = false;
+			});
+		},
+		getPump: function getPump() {
+			var _this2 = this;
+
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpump/get/' + this.pumpid).then(function (response) {
+				_this2.formUpdate.name = response.data.upump.pump.model;
+				_this2.formUpdate.address = response.data.upump.pumpAddress;
+				_this2.formUpdate.year = response.data.upump.year;
+				_this2.formUpdate.description = response.data.upump.description;
+
+				console.log(response.data);
+			});
+		},
+		getPumps: function getPumps() {
+			var _this3 = this;
+
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpumps/getall/' + this.userid).then(function (response) {
+				_this3.userpumps = response.data;
+			});
+		},
+		editForm: function editForm() {
+			if (this.edit == false) {
+				this.edit = true;
+			} else if (this.edit == true) {
+				this.edit = false;
+			}
+		},
+		update: function update() {
+			var _this4 = this;
+
+			this.isLoading = true;
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.patch('/userpump/update/' + this.pumpid, this.formUpdate).then(function (response) {
+				_this4.message = response.data.message;
+				_this4.edit = false;
+				_this4.isLoading = false;
+			});
+		},
+		modal: function modal() {
+			if (this.active == false) {
+				this.active = true;
+			} else if (this.active == true) {
+				this.active = false;
+			}
+		}
+	},
+	created: function created() {
+		this.getPump();
+		this.getPumps();
+	}
+});
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(29),
+  __webpack_require__(30),
   /* template */
-  __webpack_require__(36),
+  __webpack_require__(38),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Client.vue"
+Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\Client.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Client.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2148,20 +2421,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(30),
+  __webpack_require__(31),
   /* template */
-  __webpack_require__(35),
+  __webpack_require__(37),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2182,22 +2455,22 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(31),
+  __webpack_require__(33),
   /* template */
-  __webpack_require__(37),
+  __webpack_require__(40),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Userpump.vue"
+Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\pumppage.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Userpump.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] pumppage.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -2206,9 +2479,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6e6d7931", Component.options)
+    hotAPI.createRecord("data-v-963d7956", Component.options)
   } else {
-    hotAPI.reload("data-v-6e6d7931", Component.options)
+    hotAPI.reload("data-v-963d7956", Component.options)
   }
 })()}
 
@@ -2216,7 +2489,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2245,7 +2518,7 @@ if (false) {
 }
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2493,7 +2766,7 @@ if (false) {
 }
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2523,7 +2796,250 @@ if (false) {
 }
 
 /***/ }),
-/* 38 */
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "createForm"
+  }, [_c('section', {
+    staticClass: "userPumpPhoto"
+  }, [_c('img', {
+    attrs: {
+      "src": "images/alpha3.jpg"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "addNew addPhoto",
+    on: {
+      "click": _vm.modal
+    }
+  }, [_c('i', {
+    staticClass: "icon-gr-plus-circle "
+  }), _vm._v(" "), _c('p', [_vm._v("Add photo")])])]), _vm._v(" "), _c('section', [_vm._m(0), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "name"
+    }
+  }, [_vm._v("model number")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.name),
+      expression: "formUpdate.name"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "name",
+      "id": "name",
+      "placeholder": "model xx-xx xxx"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.name = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.name))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(1), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "address"
+    }
+  }, [_vm._v("Address of pump")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.address),
+      expression: "formUpdate.address"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "address",
+      "placeholder": "Ex. Ringvej syd 104, 8260 Viby J",
+      "id": "address"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.address)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.address = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.address))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(2), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "description"
+    }
+  }, [_vm._v("Description")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.description),
+      expression: "formUpdate.description"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "description",
+      "placeholder": "outsite, in basement",
+      "id": "description"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.description)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.description = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.description))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(3), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "year"
+    }
+  }, [_vm._v("Year")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.year),
+      expression: "formUpdate.year"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "year",
+      "placeholder": "19xx",
+      "id": "year"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.year)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.year = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.year))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(4), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "client"
+    }
+  }, [_vm._v("client")]), _vm._v(" "), _c('div', {
+    staticClass: "addNew",
+    on: {
+      "click": _vm.modal
+    }
+  }, [_c('i', {
+    staticClass: "icon-gr-plus-circle "
+  }), _vm._v(" "), _c('p', [_vm._v("Add client to pump")])])])]), _vm._v(" "), (!_vm.edit) ? _c('div', {
+    staticClass: "nav-bot-2"
+  }, [_c('div', {
+    on: {
+      "click": _vm.editForm
+    }
+  }, [_c('i', {
+    staticClass: " icon-gr-edit-write"
+  }), _vm._v(" "), _c('a', [_vm._v("Edit")]), _vm._v(" "), (_vm.message) ? _c('div', {
+    staticClass: "alert success"
+  }, [_c('h4', [_vm._v(_vm._s(_vm.message))])]) : _vm._e()]), _vm._v(" "), _c('div', [_c('i', {
+    staticClass: "icon-gr-trash"
+  }), _vm._v(" "), (!_vm.edit) ? _c('a', {
+    attrs: {
+      "href": '/client/delete/' + _vm.userid
+    }
+  }, [_vm._v("Delete")]) : _vm._e()]), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)]) : _vm._e(), _vm._v(" "), (_vm.edit) ? _c('button', {
+    staticClass: "buttonBottom",
+    on: {
+      "click": _vm.update
+    }
+  }, [(!_vm.isLoading) ? _c('i', {
+    staticClass: "icon-gr-check"
+  }) : _vm._e(), _vm._v(" "), (!_vm.isLoading) ? _c('div', [_vm._v("\r\n\t\t\t\t\tSave\r\n\t\t\t\t")]) : _vm._e(), _vm._v(" "), (_vm.isLoading) ? _c('div', [_c('i', {
+    staticClass: "icon-gr-clockwise animate-spin"
+  })]) : _vm._e()]) : _vm._e(), _vm._v(" "), _c('div', {
+    class: {
+      modal: _vm.modal, isActive: _vm.active
+    }
+  }, [_c('div', {
+    staticClass: "modalBackground",
+    on: {
+      "click": _vm.modal
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "modalContent"
+  }, [_c('div', {
+    staticClass: "box"
+  }, [_c('table', [_vm._m(7), _vm._v(" "), _c('tbody', _vm._l((_vm.userpumps.upumps), function(upump) {
+    return _c('userpump', {
+      attrs: {
+        "upump": upump
+      },
+      on: {
+        "chosen-upump": _vm.selectedPump
+      },
+      model: {
+        value: (_vm.chosen),
+        callback: function($$v) {
+          _vm.chosen = $$v
+        },
+        expression: "chosen"
+      }
+    })
+  }))]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default",
+    on: {
+      "click": _vm.modal
+    }
+  }, [_vm._v("Close ")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-success",
+    on: {
+      "click": _vm.attachUPump
+    }
+  }, [(_vm.isLoading) ? _c('span', [_c('i', {
+    staticClass: "icon-gr-clockwise animate-spin"
+  })]) : _vm._e(), _vm._v(" "), (!_vm.isLoading) ? _c('span', [_vm._v("\r\n\t\t\t\t\tChose pump\r\n\t\t\t\t")]) : _vm._e()])])]), _vm._v(" "), _c('button', {
+    staticClass: "modal-close"
+  })])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: " icon-gr-tag"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-location"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-doc-text"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: " icon-gr-calendar-date"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-user"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: " icon-gr-tools"
+  }), _vm._v(" "), _c('a', [_vm._v("Repair")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: " icon-gr-sustainable"
+  }), _vm._v(" "), _c('a', [_vm._v("Upgrade")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Name")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-963d7956", module.exports)
+  }
+}
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11773,10 +12289,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(39)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(42)))
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11803,57 +12319,23 @@ module.exports = g;
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(9);
-module.exports = __webpack_require__(10);
+__webpack_require__(11);
+module.exports = __webpack_require__(12);
 
 
 /***/ }),
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(3)(
-  /* script */
-  __webpack_require__(45),
-  /* template */
-  __webpack_require__(46),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\UsersClients.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] UsersClients.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-755a1c44", Component.options)
-  } else {
-    hotAPI.reload("data-v-755a1c44", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 45 */
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
@@ -11889,7 +12371,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['userid'],
 	data: function data() {
 		return {
@@ -11910,62 +12392,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	mounted: function mounted() {
 		this.getClients();
 	}
-};
+});
 
 /***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    staticClass: "searchResultCategory"
-  }, [_c('h2', [_vm._v("Clients")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.clients), function(client) {
-    return _c('article', [_c('div', [_c('a', {
-      attrs: {
-        "href": '/client/' + client.id
-      }
-    }, [_c('i', {
-      staticClass: "icon-gr-social-users"
-    })])]), _vm._v(" "), _c('div', [_c('a', {
-      attrs: {
-        "href": '/client/' + client.id
-      }
-    }, [_c('h3', [_vm._v(_vm._s(client.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(client.address))])])]), _vm._v(" "), _c('div', {
-      staticClass: "select-cat-btn"
-    }, [_c('a', {
-      attrs: {
-        "href": '/client/' + client.id
-      }
-    }, [_c('i', {
-      staticClass: "icon-gr-right-angle"
-    })])])])
-  })], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('article', [_c('div', {
-    staticClass: "addNew"
-  }, [_c('a', {
-    attrs: {
-      "href": "/newclient"
-    }
-  }, [_c('i', {
-    staticClass: "icon-gr-plus-circle"
-  }), _vm._v(" "), _c('p', [_vm._v("\tAdd new client")])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-755a1c44", module.exports)
-  }
-}
-
-/***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
@@ -12002,7 +12437,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = {
+/* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['uid'],
 	data: function data() {
 		return {
@@ -12022,23 +12457,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	mounted: function mounted() {
 		this.getPumps();
 	}
-};
+});
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(3)(
+var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(47),
   /* template */
-  __webpack_require__(49),
+  __webpack_require__(52),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\UsersPumps.vue"
+Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\UsersClients.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] UsersClients.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-755a1c44", Component.options)
+  } else {
+    hotAPI.reload("data-v-755a1c44", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(48),
+  /* template */
+  __webpack_require__(51),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\UsersPumps.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UsersPumps.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -12059,14 +12528,16 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('section', {
     staticClass: "searchResultCategory"
   }, [_c('h2', [_vm._v("Pumps")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.userpumps), function(userpump) {
-    return _c('article', [_c('div', [_c('a', {
+    return _c('article', {
+      staticClass: "results"
+    }, [_c('div', [_c('a', {
       attrs: {
         "href": '/userpump/' + userpump.id
       }
@@ -12091,7 +12562,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })])])])
   })], 2)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('article', [_c('div', {
+  return _c('article', {
+    staticClass: "results"
+  }, [_c('div', {
     staticClass: "addNew"
   }, [_c('a', {
     attrs: {
@@ -12106,6 +12579,57 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-089888e1", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    staticClass: "searchResultCategory"
+  }, [_c('h2', [_vm._v("Clients")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.clients), function(client) {
+    return _c('article', {
+      staticClass: "results"
+    }, [_c('div', [_c('a', {
+      attrs: {
+        "href": '/client/' + client.id
+      }
+    }, [_c('i', {
+      staticClass: "icon-gr-social-users"
+    })])]), _vm._v(" "), _c('div', [_c('a', {
+      attrs: {
+        "href": '/client/' + client.id
+      }
+    }, [_c('h3', [_vm._v(_vm._s(client.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(client.address))])])]), _vm._v(" "), _c('div', {
+      staticClass: "select-cat-btn"
+    }, [_c('a', {
+      attrs: {
+        "href": '/client/' + client.id
+      }
+    }, [_c('i', {
+      staticClass: "icon-gr-right-angle"
+    })])])])
+  })], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('article', {
+    staticClass: "results"
+  }, [_c('div', {
+    staticClass: "addNew"
+  }, [_c('a', {
+    attrs: {
+      "href": "/newclient"
+    }
+  }, [_c('i', {
+    staticClass: "icon-gr-plus-circle"
+  }), _vm._v(" "), _c('p', [_vm._v("\tAdd new client")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-755a1c44", module.exports)
   }
 }
 

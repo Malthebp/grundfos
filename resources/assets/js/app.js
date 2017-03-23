@@ -13,6 +13,9 @@
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('client', require('./components/Client.vue'));
+
+Vue.component('pumppage', require('./components/pumppage.vue'));
+
 Vue.component('users-clients', require('./components/UsersClients.vue'));
 Vue.component('users-pumps', require('./components/UsersPumps.vue'));
 

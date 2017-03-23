@@ -18,6 +18,8 @@ Pumps
 		<a href="../pump/{{$row->id}}">
 			<article class="category">
 				<img src="{{$row->pump[$i]->imagepath}}">
+			<article class="category categoryFlex">
+				<img class="pumpImage" src="{{$row->pump[$i]->imagepath}}">
 				<div class="description">
 					<h3>{{$row->pump[$i]->name}}</h3>
 					<p>{{$row->pump[$i]->description}}</p>

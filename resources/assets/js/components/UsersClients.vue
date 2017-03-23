@@ -1,7 +1,7 @@
 <template>
 <section class="searchResultCategory">
 		<h2>Clients</h2>
-		<article>
+		<article class="results">
 			<div class="addNew">
 				<a href="/newclient">
 					<i class="icon-gr-plus-circle"></i>
@@ -9,7 +9,7 @@
 				</a>
 			</div>
 		</article>
-	<article v-for="client in clients">
+	<article class="results" v-for="client in clients">
 		<div>
 			<a :href="'/client/'+client.id">
 				<i class="icon-gr-social-users"></i>
