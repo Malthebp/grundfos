@@ -19,6 +19,9 @@ Vue.component('pumppage', require('./components/pumppage.vue'));
 Vue.component('users-clients', require('./components/UsersClients.vue'));
 Vue.component('users-pumps', require('./components/UsersPumps.vue'));
 
+
+Vue.component('profile', require('./components/Profile.vue'));
+
 const app = new Vue({
     el: '#app'
 });

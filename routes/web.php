@@ -66,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::get('/catalogue/{id}', 'CatalogueController@getCategory');
 
+	//User 
+	Route::get('/user', 'UserController@getUser');
 	//Issue
 	Route::get('/issue', function(){
 		return view('issue');

@@ -1042,6 +1042,8 @@ Vue.component('pumppage', __webpack_require__(40));
 Vue.component('users-clients', __webpack_require__(38));
 Vue.component('users-pumps', __webpack_require__(39));
 
+Vue.component('profile', __webpack_require__(54));
+
 var app = new Vue({
   el: '#app'
 });
@@ -2011,6 +2013,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2045,6 +2077,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/client/upump/attach', { 'upumpid': this.chosen, 'clientid': this.clientid }).then(function (response) {
 				_this.active = false;
 				_this.isLoading = false;
+				_this.getClient();
 			});
 		},
 		getClient: function getClient() {
@@ -2417,33 +2450,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	methods: {
-		selectedPump: function selectedPump(upump) {
-			this.chosen = upump.id;
-		},
-		attachUPump: function attachUPump() {
+		getPump: function getPump() {
 			var _this = this;
 
-			this.isLoading = true;
-			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/client/upump/attach', { 'upumpid': this.chosen, 'clientid': this.clientid }).then(function (response) {
-				_this.active = false;
-				_this.isLoading = false;
-			});
-		},
-		getPump: function getPump() {
-			var _this2 = this;
-
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpump/get/' + this.pumpid).then(function (response) {
-				_this2.formUpdate.name = response.data.upump.pump.model;
-				_this2.formUpdate.address = response.data.upump.pumpAddress;
-				_this2.formUpdate.year = response.data.upump.year;
-				_this2.formUpdate.description = response.data.upump.description;
+				_this.formUpdate.name = response.data.upump.pump.model;
+				_this.formUpdate.address = response.data.upump.pumpAddress;
+				_this.formUpdate.year = response.data.upump.year;
+				_this.formUpdate.description = response.data.upump.description;
 			});
 		},
 		getPumps: function getPumps() {
-			var _this3 = this;
+			var _this2 = this;
 
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpumps/getall/' + this.userid).then(function (response) {
-				_this3.userpumps = response.data;
+				_this2.userpumps = response.data;
 			});
 		},
 		editForm: function editForm() {
@@ -2454,26 +2475,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}
 		},
 		update: function update() {
-			var _this4 = this;
+			var _this3 = this;
 
 			this.isLoading = true;
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.patch('/userpump/update/' + this.pumpid, this.formUpdate).then(function (response) {
-				_this4.message = response.data.message;
-				_this4.edit = false;
-				_this4.isLoading = false;
+				_this3.message = response.data.message;
+				_this3.edit = false;
+				_this3.isLoading = false;
 			});
-		},
-		modal: function modal() {
-			if (this.active == false) {
-				this.active = true;
-			} else if (this.active == true) {
-				this.active = false;
-			}
 		}
 	},
 	created: function created() {
 		this.getPump();
-		this.getPumps();
 	}
 };
 
@@ -2663,7 +2676,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('img', {
       attrs: {
-        "src": "images/alpha3.jpg"
+        "src": "images/pump.png"
       }
     })])]), _vm._v(" "), _c('div', [_c('a', {
       attrs: {
@@ -2884,17 +2897,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "icon-gr-check"
   }) : _vm._e(), _vm._v(" "), (!_vm.isLoading) ? _c('div', [_vm._v("\r\n\t\t\t\tSave\r\n\t\t\t")]) : _vm._e(), _vm._v(" "), (_vm.isLoading) ? _c('div', [_c('i', {
     staticClass: "icon-gr-clockwise animate-spin"
-  })]) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.message) ? _c('div', {
-    staticClass: "alert success"
-  }, [_c('h4', [_vm._v(_vm._s(_vm.message))])]) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('a', {
-    attrs: {
-      "href": '/client/delete/' + _vm.userid
-    }
-  }, [_vm._v("Delete")]) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('button', {
+  })]) : _vm._e()]) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('div', {
+    staticClass: "nav-bot-2"
+  }, [_c('div', {
     on: {
       "click": _vm.editForm
     }
-  }, [_vm._v("Edit")]) : _vm._e(), _vm._v(" "), _c('div', {
+  }, [_c('i', {
+    staticClass: " icon-gr-edit-write"
+  }), _vm._v(" "), _c('a', [_vm._v("Edit")])]), _vm._v(" "), _c('div', [_c('i', {
+    staticClass: "icon-gr-trash"
+  }), _vm._v(" "), (!_vm.edit) ? _c('a', {
+    attrs: {
+      "href": '/client/delete/' + _vm.clientid
+    }
+  }, [_vm._v("Delete")]) : _vm._e()]), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7)]) : _vm._e(), _vm._v(" "), _c('div', {
     class: {
       modal: _vm.modal, isActive: _vm.active
     }
@@ -2907,7 +2924,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "modalContent"
   }, [_c('div', {
     staticClass: "box"
-  }, [_c('table', [_vm._m(6), _vm._v(" "), _c('tbody', _vm._l((_vm.userpumps.upumps), function(upump) {
+  }, [_c('table', [_vm._m(8), _vm._v(" "), _c('tbody', _vm._l((_vm.userpumps.upumps), function(upump) {
     return _c('userpump', {
       attrs: {
         "upump": upump
@@ -2968,6 +2985,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('i', {
     staticClass: "icon-gr-plus-circle"
   }), _vm._v(" "), _c('p', [_vm._v("Add new pump")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: " icon-gr-tools"
+  }), _vm._v(" "), _c('a', [_vm._v("Repair")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: " icon-gr-sustainable"
+  }), _vm._v(" "), _c('a', [_vm._v("Upgrade")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_vm._v("Name")])])])
 }]}
@@ -3207,7 +3232,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "icon-gr-trash"
   }), _vm._v(" "), (!_vm.edit) ? _c('a', {
     attrs: {
-      "href": '/userpump/delete/' + _vm.userid
+      "href": '/userpump/delete/' + _vm.pumpid
     }
   }, [_vm._v("Delete")]) : _vm._e()]), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)]) : _vm._e(), _vm._v(" "), (_vm.edit) ? _c('button', {
     staticClass: "buttonBottom",
@@ -12543,6 +12568,226 @@ module.exports = g;
 __webpack_require__(11);
 module.exports = __webpack_require__(12);
 
+
+/***/ }),
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+	props: ['uid'],
+	data: function data() {
+		return {
+			edit: false,
+			formUpdate: {
+				name: '',
+				address: '',
+				email: ''
+			},
+			isLoading: false,
+			active: false
+		};
+	},
+	methods: {
+		getUser: function getUser() {
+			var _this = this;
+
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/user').then(function (response) {
+				_this.formUpdate.name = response.data.user.name;
+				_this.formUpdate.address = response.data.user.location;
+				_this.formUpdate.email = response.data.user.email;
+				console.log(response.data);
+			});
+		}
+	},
+	created: function created() {
+		this.getUser();
+	}
+};
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(53),
+  /* template */
+  __webpack_require__(55),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Profile.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Profile.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8bfac0ca", Component.options)
+  } else {
+    hotAPI.reload("data-v-8bfac0ca", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "createForm"
+  }, [_c('section', [_vm._m(0), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "name"
+    }
+  }, [_vm._v("Name")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.name),
+      expression: "formUpdate.name"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "name",
+      "id": "name",
+      "placeholder": "model xx-xx xxx"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.name = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.name))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(1), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "address"
+    }
+  }, [_vm._v("Address")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.address),
+      expression: "formUpdate.address"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "address",
+      "placeholder": "Ex. Ringvej syd 104, 8260 Viby J",
+      "id": "address"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.address)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.address = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.address))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(2), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.email),
+      expression: "formUpdate.email"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "email",
+      "placeholder": "Ex. john@doe.com",
+      "id": "email"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.email)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.email = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.email))]) : _vm._e()])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-user"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-location"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-mail-contact"
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-8bfac0ca", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

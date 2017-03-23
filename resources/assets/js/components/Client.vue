@@ -50,6 +50,17 @@
 				<h4 v-if="!edit">{{formUpdate.description}}</h4>
 			</div>
 		</section>
+		<!-- <section v-for="upump in userpumps.upumps">
+			<div>
+				<i class="icon-gr-doc-text"></i>
+			</div>
+			<div>
+				<label >Pumps</label>
+				<h4>
+					<a :href="'/userpump/'+upump.id">{{upump.description}}</a>
+				</h4>
+			</div>
+		</section> -->
 		<a href="/newpump">
 			<div class="addArea">
 				
@@ -72,13 +83,32 @@
 				<i class="icon-gr-clockwise animate-spin"></i>
 			</div>
 		</button>
-		<div v-if="message" class="alert success">
-			<h4>{{message}}</h4>
+		<div class="nav-bot-2" v-if="!edit">
+	<!-- edit button -->
+		<div @click="editForm">
+			<i class=" icon-gr-edit-write"></i>
+			<a>Edit</a>
 		</div>
-		<a :href="'/client/delete/'+userid" v-if="!edit">Delete</a>
-		<button v-if="!edit" @click="editForm">Edit</button>
+		
+	<!-- delete button -->
+		<div>
+			<i class="icon-gr-trash"></i>
+			<a :href="'/client/delete/'+clientid" v-if="!edit">Delete</a>
+		<!-- <button v-if="!edit" @click="editForm">Edit</button> -->
+		</div>
 
+	<!-- repair button -->
+		<div>
+			<i class=" icon-gr-tools"></i>
+			<a>Repair</a>
+		</div>
 
+	<!-- upgrade button -->
+		<div>
+			<i class=" icon-gr-sustainable"></i>
+			<a>Upgrade</a>
+		</div>
+</div>
 		<div :class="{modal, isActive: active}">
 		  <div class="modalBackground" @click="modal"></div>
 		  <div class="modalContent">
@@ -144,10 +174,10 @@
 				axios.post('/client/upump/attach', {'upumpid': this.chosen, 'clientid': this.clientid}).then(response => {
 						this.active = false;
 						this.isLoading = false;
+						this.getClient();
 				});
 			},
 			getClient: function () {
-				
 				axios.get('/client/get/' + this.clientid).then(response => {
 					this.formUpdate.name = response.data.client.name;
 					this.formUpdate.address = response.data.client.address;

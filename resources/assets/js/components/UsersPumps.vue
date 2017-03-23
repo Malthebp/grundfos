@@ -12,7 +12,7 @@
 		<article class="results" v-for="userpump in userpumps">
 			<div>
 				<a :href="'/userpump/'+ userpump.id">
-					<img src="images/alpha3.jpg">
+					<img src="images/pump.png">
 				</a>
 			</div>
 			<div>

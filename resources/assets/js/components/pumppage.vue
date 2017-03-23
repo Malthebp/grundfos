@@ -71,7 +71,7 @@
 	<!-- delete button -->
 		<div>
 			<i class="icon-gr-trash"></i>
-			<a :href="'/userpump/delete/'+userid" v-if="!edit">Delete</a>
+			<a :href="'/userpump/delete/'+pumpid" v-if="!edit">Delete</a>
 		<!-- <button v-if="!edit" @click="editForm">Edit</button> -->
 		</div>
 
@@ -125,16 +125,6 @@
 			}
 		}, 
 		methods: {
-			selectedPump: function (upump) {
-				this.chosen = upump.id;
-			},
-			attachUPump: function () {
-				this.isLoading = true;
-				axios.post('/client/upump/attach', {'upumpid': this.chosen, 'clientid': this.clientid}).then(response => {
-						this.active = false;
-						this.isLoading = false;
-				});
-			},
 			getPump: function () {
 				axios.get('/userpump/get/' + this.pumpid).then(response => {
 					this.formUpdate.name = response.data.upump.pump.model;
@@ -164,18 +154,9 @@
 						this.isLoading = false;
 					});
 			},
-			modal: function () {
-				if(this.active == false){
-					this.active = true;
-				} else if (this.active == true ){
-					this.active = false;
-				}
-				
-			}
 		},
 		created: function () {
 			this.getPump();
-			this.getPumps();
 		}
 	}
 </script>
