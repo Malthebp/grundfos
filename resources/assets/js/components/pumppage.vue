@@ -66,17 +66,12 @@
 		<div @click="editForm">
 			<i class=" icon-gr-edit-write"></i>
 			<a>Edit</a>
-
-			
-			<div v-if="message" class="alert success">
-				<h4>{{message}}</h4>
-			</div>
 		</div>
 		
 	<!-- delete button -->
 		<div>
 			<i class="icon-gr-trash"></i>
-			<a :href="'/client/delete/'+userid" v-if="!edit">Delete</a>
+			<a :href="'/userpump/delete/'+userid" v-if="!edit">Delete</a>
 		<!-- <button v-if="!edit" @click="editForm">Edit</button> -->
 		</div>
 
@@ -94,45 +89,14 @@
 </div>
 <button @click="update" v-if="edit
 		" class="buttonBottom">
-				<i v-if="!isLoading" class="icon-gr-check"></i>
-				<div v-if="!isLoading">
-					Save
-				</div>
-				<div v-if="isLoading">
-					<i class="icon-gr-clockwise animate-spin"></i>
-				</div>
-			</button>
-
-		<div :class="{modal, isActive: active}">
-		  <div class="modalBackground" @click="modal"></div>
-		  <div class="modalContent">
-		    <div class="box">
-		    	<table>
-		    		<thead>
-		    			<tr>
-		    				<th>Name</th>
-		    			</tr>
-		    		</thead>
-		    		<tbody>
-		    			<userpump v-for="upump in userpumps.upumps" v-bind:upump="upump"
-		    			v-on:chosen-upump="selectedPump" v-model="chosen"
-		    			></userpump>
-		    		</tbody>
-		    	</table>
-		    	
-		    	<button class="btn btn-default" @click="modal">Close </button>
-		    	<button class="btn btn-success" @click="attachUPump">
-		    	<span v-if="isLoading">
-					<i class="icon-gr-clockwise animate-spin"></i>
-				</span>
-				<span v-if="!isLoading">
-					Chose pump
-				</span>
-		    	</button>
-		    </div>
-		  </div>
-		  <button class="modal-close"></button>
-		</div>
+	<i v-if="!isLoading" class="icon-gr-check"></i>
+	<div v-if="!isLoading">
+		Save
+	</div>
+	<div v-if="isLoading">
+		<i class="icon-gr-clockwise animate-spin"></i>
+	</div>
+</button>
 </div>
 
 
@@ -154,7 +118,6 @@
 					year: '',
 					description: ''
 				},
-				message: '',
 				isLoading: false,
 				active: false,
 				userpumps: [],
@@ -178,8 +141,6 @@
 					this.formUpdate.address = response.data.upump.pumpAddress;
 					this.formUpdate.year = response.data.upump.year;
 					this.formUpdate.description = response.data.upump.description;
-
-					console.log(response.data);
 				});
 			}, 
 			getPumps: function () {

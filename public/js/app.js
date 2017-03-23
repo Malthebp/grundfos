@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -429,6 +429,12 @@ module.exports = function normalizeComponent (
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(13);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -524,10 +530,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -713,12 +719,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(13);
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -901,7 +901,7 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 6 */
@@ -991,13 +991,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(32),
   /* template */
-  __webpack_require__(39),
+  __webpack_require__(44),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\Userpump.vue"
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Userpump.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Userpump.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1027,20 +1027,20 @@ module.exports = Component.exports
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-var Vue = __webpack_require__(41);
+var Vue = __webpack_require__(47);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(35));
-Vue.component('client', __webpack_require__(34));
+Vue.component('example', __webpack_require__(37));
+Vue.component('client', __webpack_require__(36));
 
-Vue.component('pumppage', __webpack_require__(36));
+Vue.component('pumppage', __webpack_require__(40));
 
-Vue.component('users-clients', __webpack_require__(49));
-Vue.component('users-pumps', __webpack_require__(50));
+Vue.component('users-clients', __webpack_require__(38));
+Vue.component('users-pumps', __webpack_require__(39));
 
 var app = new Vue({
   el: '#app'
@@ -1062,7 +1062,7 @@ var app = new Vue({
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(9);
 var Axios = __webpack_require__(15);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 
 /**
  * Create an instance of Axios
@@ -1182,7 +1182,7 @@ module.exports = CancelToken;
 "use strict";
 
 
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(16);
 var dispatchRequest = __webpack_require__(17);
@@ -1336,7 +1336,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(20);
 var isCancel = __webpack_require__(7);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1893,7 +1893,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Userpump__);
@@ -2014,7 +2014,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = {
 	props: ['clientid', 'userid'],
 	components: { userpump: __WEBPACK_IMPORTED_MODULE_1__Userpump___default.a },
 	data: function data() {
@@ -2094,7 +2094,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.getClient();
 		this.getPumps();
 	}
-});
+};
 
 /***/ }),
 /* 31 */
@@ -2119,11 +2119,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = {
     mounted: function mounted() {
         console.log('Component mounted.');
     }
-});
+};
 
 /***/ }),
 /* 32 */
@@ -2142,13 +2142,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = {
 	props: ['upump'],
 	data: function data() {
 		return {};
 	},
 	methods: {}
-});
+};
 
 /***/ }),
 /* 33 */
@@ -2156,7 +2156,137 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+	props: ['userid'],
+	data: function data() {
+		return {
+			clients: []
+		};
+	},
+	methods: {
+		getClients: function getClients() {
+			var _this = this;
+
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/client/all/' + this.userid).then(function (response) {
+
+				_this.clients = response.data.clients;
+				console.log(_this.clients);
+			});
+		}
+	},
+	mounted: function mounted() {
+		this.getClients();
+	}
+};
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+	props: ['uid'],
+	data: function data() {
+		return {
+			userpumps: []
+		};
+	},
+	methods: {
+		getPumps: function getPumps() {
+			var _this = this;
+
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpumps/all/' + this.uid).then(function (response) {
+				_this.userpumps = response.data.userpumps;
+				console.log(_this.userpumps);
+			});
+		}
+	},
+	mounted: function mounted() {
+		this.getPumps();
+	}
+};
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Userpump___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Userpump__);
@@ -2265,46 +2395,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = {
 	props: ['pumpid', 'userid'],
 	components: { userpump: __WEBPACK_IMPORTED_MODULE_1__Userpump___default.a },
 	data: function data() {
@@ -2316,7 +2410,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				year: '',
 				description: ''
 			},
-			message: '',
 			isLoading: false,
 			active: false,
 			userpumps: [],
@@ -2344,8 +2437,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this2.formUpdate.address = response.data.upump.pumpAddress;
 				_this2.formUpdate.year = response.data.upump.year;
 				_this2.formUpdate.description = response.data.upump.description;
-
-				console.log(response.data);
 			});
 		},
 		getPumps: function getPumps() {
@@ -2384,23 +2475,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.getPump();
 		this.getPumps();
 	}
-});
+};
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(30),
   /* template */
-  __webpack_require__(38),
+  __webpack_require__(43),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\Client.vue"
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Client.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Client.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2421,20 +2512,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(31),
   /* template */
-  __webpack_require__(37),
+  __webpack_require__(42),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2455,20 +2546,88 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(33),
   /* template */
-  __webpack_require__(40),
+  __webpack_require__(45),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\pumppage.vue"
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\UsersClients.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] UsersClients.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-755a1c44", Component.options)
+  } else {
+    hotAPI.reload("data-v-755a1c44", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(34),
+  /* template */
+  __webpack_require__(41),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\UsersPumps.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] UsersPumps.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-089888e1", Component.options)
+  } else {
+    hotAPI.reload("data-v-089888e1", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(35),
+  /* template */
+  __webpack_require__(46),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\pumppage.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] pumppage.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2489,7 +2648,62 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    staticClass: "searchResultCategory"
+  }, [_c('h2', [_vm._v("Pumps")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.userpumps), function(userpump) {
+    return _c('article', {
+      staticClass: "results"
+    }, [_c('div', [_c('a', {
+      attrs: {
+        "href": '/userpump/' + userpump.id
+      }
+    }, [_c('img', {
+      attrs: {
+        "src": "images/alpha3.jpg"
+      }
+    })])]), _vm._v(" "), _c('div', [_c('a', {
+      attrs: {
+        "href": '/userpump/' + userpump.id
+      }
+    }, [_c('h3', [_vm._v(_vm._s(userpump.description))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(userpump.pump.model))]), _vm._v(" "), _c('p', {
+      staticClass: "location"
+    }, [_vm._v(_vm._s(userpump.pumpAddress))])])]), _vm._v(" "), _c('div', {
+      staticClass: "select-cat-btn"
+    }, [_c('a', {
+      attrs: {
+        "href": '/userpump/' + userpump.id
+      }
+    }, [_c('i', {
+      staticClass: "icon-gr-right-angle"
+    })])])])
+  })], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('article', {
+    staticClass: "results"
+  }, [_c('div', {
+    staticClass: "addNew"
+  }, [_c('a', {
+    attrs: {
+      "href": "/newpump"
+    }
+  }, [_c('i', {
+    staticClass: "icon-gr-plus-circle"
+  }), _vm._v(" "), _c('p', [_vm._v("\tAdd new pump")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-089888e1", module.exports)
+  }
+}
+
+/***/ }),
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2518,7 +2732,7 @@ if (false) {
 }
 
 /***/ }),
-/* 38 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2766,7 +2980,7 @@ if (false) {
 }
 
 /***/ }),
-/* 39 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2796,7 +3010,58 @@ if (false) {
 }
 
 /***/ }),
-/* 40 */
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    staticClass: "searchResultCategory"
+  }, [_c('h2', [_vm._v("Clients")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.clients), function(client) {
+    return _c('article', {
+      staticClass: "results"
+    }, [_c('div', [_c('a', {
+      attrs: {
+        "href": '/client/' + client.id
+      }
+    }, [_c('i', {
+      staticClass: "icon-gr-social-users"
+    })])]), _vm._v(" "), _c('div', [_c('a', {
+      attrs: {
+        "href": '/client/' + client.id
+      }
+    }, [_c('h3', [_vm._v(_vm._s(client.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(client.address))])])]), _vm._v(" "), _c('div', {
+      staticClass: "select-cat-btn"
+    }, [_c('a', {
+      attrs: {
+        "href": '/client/' + client.id
+      }
+    }, [_c('i', {
+      staticClass: "icon-gr-right-angle"
+    })])])])
+  })], 2)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('article', {
+    staticClass: "results"
+  }, [_c('div', {
+    staticClass: "addNew"
+  }, [_c('a', {
+    attrs: {
+      "href": "/newclient"
+    }
+  }, [_c('i', {
+    staticClass: "icon-gr-plus-circle"
+  }), _vm._v(" "), _c('p', [_vm._v("\tAdd new client")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-755a1c44", module.exports)
+  }
+}
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2938,13 +3203,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('i', {
     staticClass: " icon-gr-edit-write"
-  }), _vm._v(" "), _c('a', [_vm._v("Edit")]), _vm._v(" "), (_vm.message) ? _c('div', {
-    staticClass: "alert success"
-  }, [_c('h4', [_vm._v(_vm._s(_vm.message))])]) : _vm._e()]), _vm._v(" "), _c('div', [_c('i', {
+  }), _vm._v(" "), _c('a', [_vm._v("Edit")])]), _vm._v(" "), _c('div', [_c('i', {
     staticClass: "icon-gr-trash"
   }), _vm._v(" "), (!_vm.edit) ? _c('a', {
     attrs: {
-      "href": '/client/delete/' + _vm.userid
+      "href": '/userpump/delete/' + _vm.userid
     }
   }, [_vm._v("Delete")]) : _vm._e()]), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)]) : _vm._e(), _vm._v(" "), (_vm.edit) ? _c('button', {
     staticClass: "buttonBottom",
@@ -2953,52 +3216,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(!_vm.isLoading) ? _c('i', {
     staticClass: "icon-gr-check"
-  }) : _vm._e(), _vm._v(" "), (!_vm.isLoading) ? _c('div', [_vm._v("\r\n\t\t\t\t\tSave\r\n\t\t\t\t")]) : _vm._e(), _vm._v(" "), (_vm.isLoading) ? _c('div', [_c('i', {
+  }) : _vm._e(), _vm._v(" "), (!_vm.isLoading) ? _c('div', [_vm._v("\r\n\t\tSave\r\n\t")]) : _vm._e(), _vm._v(" "), (_vm.isLoading) ? _c('div', [_c('i', {
     staticClass: "icon-gr-clockwise animate-spin"
-  })]) : _vm._e()]) : _vm._e(), _vm._v(" "), _c('div', {
-    class: {
-      modal: _vm.modal, isActive: _vm.active
-    }
-  }, [_c('div', {
-    staticClass: "modalBackground",
-    on: {
-      "click": _vm.modal
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "modalContent"
-  }, [_c('div', {
-    staticClass: "box"
-  }, [_c('table', [_vm._m(7), _vm._v(" "), _c('tbody', _vm._l((_vm.userpumps.upumps), function(upump) {
-    return _c('userpump', {
-      attrs: {
-        "upump": upump
-      },
-      on: {
-        "chosen-upump": _vm.selectedPump
-      },
-      model: {
-        value: (_vm.chosen),
-        callback: function($$v) {
-          _vm.chosen = $$v
-        },
-        expression: "chosen"
-      }
-    })
-  }))]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-default",
-    on: {
-      "click": _vm.modal
-    }
-  }, [_vm._v("Close ")]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-success",
-    on: {
-      "click": _vm.attachUPump
-    }
-  }, [(_vm.isLoading) ? _c('span', [_c('i', {
-    staticClass: "icon-gr-clockwise animate-spin"
-  })]) : _vm._e(), _vm._v(" "), (!_vm.isLoading) ? _c('span', [_vm._v("\r\n\t\t\t\t\tChose pump\r\n\t\t\t\t")]) : _vm._e()])])]), _vm._v(" "), _c('button', {
-    staticClass: "modal-close"
-  })])])
+  })]) : _vm._e()]) : _vm._e()])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('i', {
     staticClass: " icon-gr-tag"
@@ -3027,8 +3247,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('i', {
     staticClass: " icon-gr-sustainable"
   }), _vm._v(" "), _c('a', [_vm._v("Upgrade")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Name")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -3039,7 +3257,7 @@ if (false) {
 }
 
 /***/ }),
-/* 41 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12289,10 +12507,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(42)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(48)))
 
 /***/ }),
-/* 42 */
+/* 48 */
 /***/ (function(module, exports) {
 
 var g;
@@ -12319,319 +12537,12 @@ module.exports = g;
 
 
 /***/ }),
-/* 43 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
 module.exports = __webpack_require__(12);
 
-
-/***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['userid'],
-	data: function data() {
-		return {
-			clients: []
-		};
-	},
-	methods: {
-		getClients: function getClients() {
-			var _this = this;
-
-			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/client/all/' + this.userid).then(function (response) {
-
-				_this.clients = response.data.clients;
-				console.log(_this.clients);
-			});
-		}
-	},
-	mounted: function mounted() {
-		this.getClients();
-	}
-});
-
-/***/ }),
-/* 48 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['uid'],
-	data: function data() {
-		return {
-			userpumps: []
-		};
-	},
-	methods: {
-		getPumps: function getPumps() {
-			var _this = this;
-
-			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpumps/all/' + this.uid).then(function (response) {
-				_this.userpumps = response.data.userpumps;
-				console.log(_this.userpumps);
-			});
-		}
-	},
-	mounted: function mounted() {
-		this.getPumps();
-	}
-});
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(47),
-  /* template */
-  __webpack_require__(52),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\UsersClients.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] UsersClients.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-755a1c44", Component.options)
-  } else {
-    hotAPI.reload("data-v-755a1c44", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(48),
-  /* template */
-  __webpack_require__(51),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\wamp64\\www\\grundfos\\resources\\assets\\js\\components\\UsersPumps.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] UsersPumps.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-089888e1", Component.options)
-  } else {
-    hotAPI.reload("data-v-089888e1", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    staticClass: "searchResultCategory"
-  }, [_c('h2', [_vm._v("Pumps")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.userpumps), function(userpump) {
-    return _c('article', {
-      staticClass: "results"
-    }, [_c('div', [_c('a', {
-      attrs: {
-        "href": '/userpump/' + userpump.id
-      }
-    }, [_c('img', {
-      attrs: {
-        "src": "images/alpha3.jpg"
-      }
-    })])]), _vm._v(" "), _c('div', [_c('a', {
-      attrs: {
-        "href": '/userpump/' + userpump.id
-      }
-    }, [_c('h3', [_vm._v(_vm._s(userpump.description))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(userpump.pump.model))]), _vm._v(" "), _c('p', {
-      staticClass: "location"
-    }, [_vm._v(_vm._s(userpump.pumpAddress))])])]), _vm._v(" "), _c('div', {
-      staticClass: "select-cat-btn"
-    }, [_c('a', {
-      attrs: {
-        "href": '/userpump/' + userpump.id
-      }
-    }, [_c('i', {
-      staticClass: "icon-gr-right-angle"
-    })])])])
-  })], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('article', {
-    staticClass: "results"
-  }, [_c('div', {
-    staticClass: "addNew"
-  }, [_c('a', {
-    attrs: {
-      "href": "/newpump"
-    }
-  }, [_c('i', {
-    staticClass: "icon-gr-plus-circle"
-  }), _vm._v(" "), _c('p', [_vm._v("\tAdd new pump")])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-089888e1", module.exports)
-  }
-}
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    staticClass: "searchResultCategory"
-  }, [_c('h2', [_vm._v("Clients")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.clients), function(client) {
-    return _c('article', {
-      staticClass: "results"
-    }, [_c('div', [_c('a', {
-      attrs: {
-        "href": '/client/' + client.id
-      }
-    }, [_c('i', {
-      staticClass: "icon-gr-social-users"
-    })])]), _vm._v(" "), _c('div', [_c('a', {
-      attrs: {
-        "href": '/client/' + client.id
-      }
-    }, [_c('h3', [_vm._v(_vm._s(client.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(client.address))])])]), _vm._v(" "), _c('div', {
-      staticClass: "select-cat-btn"
-    }, [_c('a', {
-      attrs: {
-        "href": '/client/' + client.id
-      }
-    }, [_c('i', {
-      staticClass: "icon-gr-right-angle"
-    })])])])
-  })], 2)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('article', {
-    staticClass: "results"
-  }, [_c('div', {
-    staticClass: "addNew"
-  }, [_c('a', {
-    attrs: {
-      "href": "/newclient"
-    }
-  }, [_c('i', {
-    staticClass: "icon-gr-plus-circle"
-  }), _vm._v(" "), _c('p', [_vm._v("\tAdd new client")])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-755a1c44", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
