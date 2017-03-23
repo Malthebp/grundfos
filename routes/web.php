@@ -35,7 +35,11 @@ Route::group(['middleware' => ['auth']], function () {
 	//Userpumps
 	Route::get('/userpump/{id}', 'UPumpController@getPump');
 	Route::get('/userpumps/getall/{id}', 'UPumpController@getAllUpumpsfromUser');
-
+	
+	Route::get('/userpump/get/{id}', 'UPumpController@getUpump');
+	Route::patch('/userpump/update/{id}', 'UPumpController@update');
+	Route::get('/userpump/delete/{id}', 'UPumpController@delete');
+	Route::post('/userpump/upump/attach', 'UPumpController@attachUPump');
 
 	//New client
 	Route::get('/newclient', 'NewClientController@newClient');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Upump;
+use App\Pump;
 use App\User;
 
 class UPumpController extends Controller
@@ -35,6 +36,40 @@ class UPumpController extends Controller
                 'message' => 'Pump added',
                 'pumpid' => $upump,
                 'clientid' => $request->clientid
+            ]);
+    }
+
+  public function update(Request $request, $id)
+    {
+        $upump = Upump::findOrFail($id);
+
+        $upump->update([
+                'name' => $request->input('name'),
+                'year' => $request->input('year'),
+                'pumpAddress' => $request->input('address'),
+                'description' => $request->input('description'),
+            ]);
+
+        return response()->json([
+                'upump' => $upump,
+                'message' => 'Successfully updated'
+            ]);
+    }
+
+
+    public function delete($id)
+    {
+        $upump = Upump::findOrFail($id);
+        $upump->delete();
+        return redirect('/index');
+    }
+
+    public function getUpump($id)
+    {
+        $pump = Upump::with('Pump')->find($id);
+
+        return response()->json([
+            "upump" => $pump 
             ]);
     }
 }

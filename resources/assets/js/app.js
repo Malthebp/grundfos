@@ -13,6 +13,7 @@
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('client', require('./components/Client.vue'));
+Vue.component('pumppage', require('./components/pumppage.vue'));
 
 const app = new Vue({
     el: '#app'
