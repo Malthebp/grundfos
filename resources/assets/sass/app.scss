@@ -602,3 +602,41 @@ main#register, main#login, main#forgot {
 		display: block;
 	}
 }
+
+/* UPGRADE */
+.upgradeWrapper {
+	h2 {
+		text-align: center;
+		margin-top:15px;
+		color:$brand-primary;
+	}
+	section {
+		display: flex;
+  		flex-direction: row;
+  		align-items: center;
+  		margin:50px 15px 15px 15px;
+  		img {
+  			margin-right:30px;
+  			width:80%;
+  		}
+  		div {
+  			width:50%;
+  			img {
+  				justify-content:flex-start;
+  				width:70%;
+  			}
+  		}
+  		p {
+  			width:50%;
+  		}
+	}
+}
+#lastSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	img {
+		width:50%;
+	}
+
+}
