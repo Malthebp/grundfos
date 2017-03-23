@@ -17,8 +17,7 @@ Pumps
 		@for ($i = 0; $i <= count($row->pump)-1; $i++)
 		<a href="../pump/{{$row->id}}">
 			<article class="category">
-				<div class="{{$row->pump[$i]->imagepath}}">
-				</div>
+				<img src="{{$row->pump[$i]->imagepath}}">
 				<div class="description">
 					<h3>{{$row->pump[$i]->name}}</h3>
 					<p>{{$row->pump[$i]->description}}</p>
