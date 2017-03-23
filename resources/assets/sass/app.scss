@@ -148,7 +148,7 @@ nav.bottomNav {
 				}
 				img {
 					height: auto;
-					width: 39%;
+					width: 30%;
 					margin: 0 auto;
 					display: block;
 				}
@@ -177,6 +177,7 @@ nav.bottomNav {
 		align-items: center;
 		padding-top:5px;
 		padding-bottom:5px;
+		font-size:1.1rem;
 		a {
 			color:$brand-primary;
 		}
@@ -198,7 +199,9 @@ nav.bottomNav {
 		font-size: 1.3rem;
 		border-bottom: 2px solid $grey-lightmid;
 	}
-
+	a {
+		color:$grey-verydark;
+	}
 	article:last-child {
 		border-bottom: 1px solid $grey-lightmid;
 	}
