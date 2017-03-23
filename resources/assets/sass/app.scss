@@ -214,9 +214,25 @@ nav.bottomNav {
 		div:first-child {
 			display: inline-block;
 			width:12%;
+			a {
+				color: $grey-dark;
+			}
 			img {
 				width: 100%;
 				height: auto;
+			}
+		}
+		div:nth-child(2){
+			width: 64%;
+			a {
+				color: $grey-dark;
+				text-decoration: none;
+			}
+		}
+		div:nth-child(3) {
+			width: 12%;
+			a {
+				color: $grey-verylight;
 			}
 		}
 		div {
@@ -274,6 +290,10 @@ nav.bottomNav {
 	width:97% !important;
 	text-align:center;
 	color: $grey-verydark;
+	a {
+		text-decoration: none;
+		color: $grey-dark;
+	}
 		i {
 		color: $brand-success !important;
 		}
@@ -451,8 +471,13 @@ table tbody tr {
 
 main .categories {
 	article.category {
-		padding: 15px 10px;
+		padding: 15px 0px;
 		width: 100%;
+		display: block;
+	}
+	article.categoryFlex {
+		display: flex;
+		align-items: center;
 	}
 	div[class^="icon"] {
 		display: inline-table;
@@ -461,6 +486,10 @@ main .categories {
 	div.description {
 		width: 78%;
 		margin: 0 1% 0 0%;
+	}
+	.category .pumpImage {
+	    width: 19%;
+    	display: inline;
 	}
 }
 

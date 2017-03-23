@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/logout', function() {
 	Auth::logout();
 });
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/index', function () {
 	    return view('index');
@@ -51,6 +52,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::patch('/client/update/{id}', 'ClientController@update');
 	Route::get('/client/delete/{id}', 'ClientController@delete');
 	Route::post('/client/upump/attach', 'UPumpController@attachUPump');
+
+	//Index 
+	Route::get('/client/all/{id}', 'ClientController@getAllClients');
+	Route::get('/userpumps/all/{id}', 'UPumpController@getAllUserPumps');
 
 	//Clientpage
 	Route::get('/client({id}', 'ClientController@index');
