@@ -483,6 +483,9 @@ main .categories {
 		width: 100%;
 		display: block;
 	}
+	a {
+		text-decoration: none;
+	}
 	article.categoryFlex {
 		display: flex;
 		align-items: center;
@@ -492,7 +495,7 @@ main .categories {
 		font-size: 42px;
 	}
 	div.description {
-		width: 78%;
+		width: 74%;
 		margin: 0 1% 0 0%;
 	}
 	.category .pumpImage {
