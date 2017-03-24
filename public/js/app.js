@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 52);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -989,15 +989,15 @@ module.exports = function bind(fn, thisArg) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(32),
+  __webpack_require__(33),
   /* template */
-  __webpack_require__(44),
+  __webpack_require__(46),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Userpump.vue"
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\Userpump.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Userpump.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1027,22 +1027,22 @@ module.exports = Component.exports
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-var Vue = __webpack_require__(47);
+var Vue = __webpack_require__(50);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(37));
-Vue.component('client', __webpack_require__(36));
+Vue.component('example', __webpack_require__(38));
+Vue.component('client', __webpack_require__(37));
 
-Vue.component('pumppage', __webpack_require__(40));
+Vue.component('pumppage', __webpack_require__(42));
 
-Vue.component('users-clients', __webpack_require__(38));
-Vue.component('users-pumps', __webpack_require__(39));
+Vue.component('users-clients', __webpack_require__(40));
+Vue.component('users-pumps', __webpack_require__(41));
 
-Vue.component('profile', __webpack_require__(54));
+Vue.component('profile', __webpack_require__(39));
 
 var app = new Vue({
   el: '#app'
@@ -2164,6 +2164,82 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+	props: ['uid'],
+	data: function data() {
+		return {
+			edit: false,
+			formUpdate: {
+				name: '',
+				address: '',
+				email: ''
+			},
+			isLoading: false,
+			active: false
+		};
+	},
+	methods: {
+		getUser: function getUser() {
+			var _this = this;
+
+			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/user').then(function (response) {
+				_this.formUpdate.name = response.data.user.name;
+				_this.formUpdate.address = response.data.user.location;
+				_this.formUpdate.email = response.data.user.email;
+				console.log(response.data);
+			});
+		}
+	},
+	created: function created() {
+		this.getUser();
+	}
+};
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -2184,7 +2260,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2249,7 +2325,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2314,7 +2390,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2491,20 +2567,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(30),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(45),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Client.vue"
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\Client.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Client.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2525,20 +2601,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(31),
   /* template */
-  __webpack_require__(42),
+  __webpack_require__(44),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2559,20 +2635,54 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(33),
+  __webpack_require__(32),
   /* template */
-  __webpack_require__(45),
+  __webpack_require__(48),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\UsersClients.vue"
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\Profile.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Profile.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8bfac0ca", Component.options)
+  } else {
+    hotAPI.reload("data-v-8bfac0ca", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(34),
+  /* template */
+  __webpack_require__(47),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\UsersClients.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UsersClients.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2593,20 +2703,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(34),
+  __webpack_require__(35),
   /* template */
-  __webpack_require__(41),
+  __webpack_require__(43),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\UsersPumps.vue"
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\UsersPumps.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UsersPumps.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2627,20 +2737,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(35),
+  __webpack_require__(36),
   /* template */
-  __webpack_require__(46),
+  __webpack_require__(49),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\pumppage.vue"
+Component.options.__file = "C:\\wamp64\\www\\git\\grundfos\\resources\\assets\\js\\components\\pumppage.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] pumppage.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2661,7 +2771,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2716,7 +2826,7 @@ if (false) {
 }
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2745,7 +2855,7 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3005,7 +3115,7 @@ if (false) {
 }
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3035,7 +3145,7 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3086,7 +3196,114 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "createForm"
+  }, [_c('section', [_vm._m(0), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "name"
+    }
+  }, [_vm._v("Name")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.name),
+      expression: "formUpdate.name"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "name",
+      "id": "name",
+      "placeholder": "model xx-xx xxx"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.name = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.name))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(1), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "address"
+    }
+  }, [_vm._v("Address")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.address),
+      expression: "formUpdate.address"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "address",
+      "placeholder": "Ex. Ringvej syd 104, 8260 Viby J",
+      "id": "address"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.address)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.address = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.address))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(2), _vm._v(" "), _c('div', [_c('label', {
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email")]), _vm._v(" "), (_vm.edit) ? _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.formUpdate.email),
+      expression: "formUpdate.email"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "email",
+      "placeholder": "Ex. john@doe.com",
+      "id": "email"
+    },
+    domProps: {
+      "value": (_vm.formUpdate.email)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.formUpdate.email = $event.target.value
+      }
+    }
+  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.email))]) : _vm._e()])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-user"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-location"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('i', {
+    staticClass: "icon-gr-mail-contact"
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-8bfac0ca", module.exports)
+  }
+}
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3282,7 +3499,7 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12532,10 +12749,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(48)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(51)))
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports) {
 
 var g;
@@ -12562,232 +12779,12 @@ module.exports = g;
 
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
 module.exports = __webpack_require__(12);
 
-
-/***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = {
-	props: ['uid'],
-	data: function data() {
-		return {
-			edit: false,
-			formUpdate: {
-				name: '',
-				address: '',
-				email: ''
-			},
-			isLoading: false,
-			active: false
-		};
-	},
-	methods: {
-		getUser: function getUser() {
-			var _this = this;
-
-			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/user').then(function (response) {
-				_this.formUpdate.name = response.data.user.name;
-				_this.formUpdate.address = response.data.user.location;
-				_this.formUpdate.email = response.data.user.email;
-				console.log(response.data);
-			});
-		}
-	},
-	created: function created() {
-		this.getUser();
-	}
-};
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(53),
-  /* template */
-  __webpack_require__(55),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\wamp\\www\\Laravel\\mdu\\grundfos\\resources\\assets\\js\\components\\Profile.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Profile.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8bfac0ca", Component.options)
-  } else {
-    hotAPI.reload("data-v-8bfac0ca", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "createForm"
-  }, [_c('section', [_vm._m(0), _vm._v(" "), _c('div', [_c('label', {
-    attrs: {
-      "for": "name"
-    }
-  }, [_vm._v("Name")]), _vm._v(" "), (_vm.edit) ? _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.formUpdate.name),
-      expression: "formUpdate.name"
-    }],
-    attrs: {
-      "type": "text",
-      "name": "name",
-      "id": "name",
-      "placeholder": "model xx-xx xxx"
-    },
-    domProps: {
-      "value": (_vm.formUpdate.name)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.formUpdate.name = $event.target.value
-      }
-    }
-  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.name))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(1), _vm._v(" "), _c('div', [_c('label', {
-    attrs: {
-      "for": "address"
-    }
-  }, [_vm._v("Address")]), _vm._v(" "), (_vm.edit) ? _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.formUpdate.address),
-      expression: "formUpdate.address"
-    }],
-    attrs: {
-      "type": "text",
-      "name": "address",
-      "placeholder": "Ex. Ringvej syd 104, 8260 Viby J",
-      "id": "address"
-    },
-    domProps: {
-      "value": (_vm.formUpdate.address)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.formUpdate.address = $event.target.value
-      }
-    }
-  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.address))]) : _vm._e()])]), _vm._v(" "), _c('section', [_vm._m(2), _vm._v(" "), _c('div', [_c('label', {
-    attrs: {
-      "for": "email"
-    }
-  }, [_vm._v("Email")]), _vm._v(" "), (_vm.edit) ? _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.formUpdate.email),
-      expression: "formUpdate.email"
-    }],
-    attrs: {
-      "type": "text",
-      "name": "email",
-      "placeholder": "Ex. john@doe.com",
-      "id": "email"
-    },
-    domProps: {
-      "value": (_vm.formUpdate.email)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.formUpdate.email = $event.target.value
-      }
-    }
-  }) : _vm._e(), _vm._v(" "), (!_vm.edit) ? _c('h4', [_vm._v(_vm._s(_vm.formUpdate.email))]) : _vm._e()])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('i', {
-    staticClass: "icon-gr-user"
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('i', {
-    staticClass: "icon-gr-location"
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('i', {
-    staticClass: "icon-gr-mail-contact"
-  })])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-8bfac0ca", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
