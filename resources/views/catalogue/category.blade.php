@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('headerLeft')
-    <a href="{{URL::previous()}}">
+    <a href="/catalogue">
 		<i class=" icon-gr-left-angle" aria-hidden="true"></i>
 	</a>
 @endsection
@@ -16,8 +16,6 @@ Pumps
 		@foreach ($category as $row)
 		@for ($i = 0; $i <= count($row->pump)-1; $i++)
 		<a href="../pump/{{$row->id}}">
-			<article class="category">
-				<img src="{{$row->pump[$i]->imagepath}}">
 			<article class="category categoryFlex">
 				<img class="pumpImage" src="{{$row->pump[$i]->imagepath}}">
 				<div class="description">

@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/catalogue', 'CatalogueController@index');
 
 	Route::get('/pump/{id}', 'PumpController@getPump');
+	Route::get('/pump/issue/{id}', 'PumpController@getIssue');
 
 	Route::get('/catalogue/{id}', 'CatalogueController@getCategory');
 
