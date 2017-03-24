@@ -2297,8 +2297,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2332,8 +2330,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-//
-//
 //
 //
 //
@@ -2794,15 +2790,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('h3', [_vm._v(_vm._s(userpump.description))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(userpump.pump.model))]), _vm._v(" "), _c('p', {
       staticClass: "location"
-    }, [_vm._v(_vm._s(userpump.pumpAddress))])])]), _vm._v(" "), _c('div', {
-      staticClass: "select-cat-btn"
-    }, [_c('a', {
+    }, [_vm._v(_vm._s(userpump.pumpAddress))])])]), _vm._v(" "), _c('a', {
       attrs: {
         "href": '/userpump/' + userpump.id
       }
-    }, [_c('i', {
-      staticClass: "icon-gr-right-angle"
-    })])])])
+    }, [_c('img', {
+      attrs: {
+        "src": "images/select-btn.png"
+      }
+    })])])
   })], 2)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('article', {
@@ -3164,15 +3160,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '/client/' + client.id
       }
-    }, [_c('h3', [_vm._v(_vm._s(client.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(client.address))])])]), _vm._v(" "), _c('div', {
-      staticClass: "select-cat-btn"
-    }, [_c('a', {
+    }, [_c('h3', [_vm._v(_vm._s(client.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(client.address))])])]), _vm._v(" "), _c('a', {
       attrs: {
         "href": '/client/' + client.id
       }
-    }, [_c('i', {
-      staticClass: "icon-gr-right-angle"
-    })])])])
+    }, [_c('img', {
+      attrs: {
+        "src": "images/select-btn.png"
+      }
+    })])])
   })], 2)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('article', {

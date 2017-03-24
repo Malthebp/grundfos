@@ -21,11 +21,9 @@
 				<p>{{client.address}}</p>
 			</a>
 		</div>
-		<div class="select-cat-btn">
-			<a :href="'/client/'+client.id">
-				<i class="icon-gr-right-angle"></i>
-			</a>
-		</div>
+		<a :href="'/client/'+ client.id">
+			<img src="images/select-btn.png">
+		</a>
 	</article>
 </section>
 </template>

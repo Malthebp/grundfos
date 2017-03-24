@@ -22,11 +22,9 @@
 					<p class="location">{{userpump.pumpAddress}}</p>
 				</a>
 			</div>
-			<div class="select-cat-btn">
-				<a :href="'/userpump/'+ userpump.id">
-					<i class="icon-gr-right-angle"></i>
-				</a>
-			</div>
+			<a :href="'/userpump/'+ userpump.id">
+				<img src="images/select-btn.png">
+			</a>
 		</article>
 	</section>
 </template>
