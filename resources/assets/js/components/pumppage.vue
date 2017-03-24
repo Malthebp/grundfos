@@ -1,7 +1,7 @@
 <template>
 <div class="createForm">
 		<section class="userPumpPhoto">
-			<img src="images/alpha3.jpg">
+			<img :src="formUpdate.image">
 			</img>
 			<div class="addNew addPhoto" @click="modal">
 				<i class="icon-gr-plus-circle "></i>
@@ -78,13 +78,13 @@
 	<!-- repair button -->
 		<div>
 			<i class=" icon-gr-tools"></i>
-			<a>Repair</a>
+			<a :href="'/pump/'+formUpdate.id">Repair</a>
 		</div>
 
 	<!-- upgrade button -->
 		<div>
 			<i class=" icon-gr-sustainable"></i>
-			<a>Upgrade</a>
+			<a href="/upgrade">Upgrade</a>
 		</div>
 </div>
 <button @click="update" v-if="edit
@@ -116,7 +116,9 @@
 					name: '',
 					address: '',
 					year: '',
-					description: ''
+					description: '',
+					id: '',
+					image: ''
 				},
 				isLoading: false,
 				active: false,
@@ -128,6 +130,8 @@
 			getPump: function () {
 				axios.get('/userpump/get/' + this.pumpid).then(response => {
 					this.formUpdate.name = response.data.upump.pump.model;
+					this.formUpdate.id = response.data.upump.pump.id;
+					this.formUpdate.image = response.data.upump.pump.imagepath;
 					this.formUpdate.address = response.data.upump.pumpAddress;
 					this.formUpdate.year = response.data.upump.year;
 					this.formUpdate.description = response.data.upump.description;

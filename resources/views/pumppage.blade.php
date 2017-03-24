@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-<main >
+<main id="withMargin">
 	<pumppage :pumpid="{{$pump->id}}" :userid="{{Auth::id()}}"></pumppage>
 </main>
 @endsection

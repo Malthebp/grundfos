@@ -2513,7 +2513,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				name: '',
 				address: '',
 				year: '',
-				description: ''
+				description: '',
+				id: '',
+				image: ''
 			},
 			isLoading: false,
 			active: false,
@@ -2527,6 +2529,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userpump/get/' + this.pumpid).then(function (response) {
 				_this.formUpdate.name = response.data.upump.pump.model;
+				_this.formUpdate.id = response.data.upump.pump.id;
+				_this.formUpdate.image = response.data.upump.pump.imagepath;
 				_this.formUpdate.address = response.data.upump.pumpAddress;
 				_this.formUpdate.year = response.data.upump.year;
 				_this.formUpdate.description = response.data.upump.description;
@@ -3309,7 +3313,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "userPumpPhoto"
   }, [_c('img', {
     attrs: {
-      "src": "images/alpha3.jpg"
+      "src": _vm.formUpdate.image
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "addNew addPhoto",
@@ -3447,7 +3451,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": '/userpump/delete/' + _vm.pumpid
     }
-  }, [_vm._v("Delete")]) : _vm._e()]), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)]) : _vm._e(), _vm._v(" "), (_vm.edit) ? _c('button', {
+  }, [_vm._v("Delete")]) : _vm._e()]), _vm._v(" "), _c('div', [_c('i', {
+    staticClass: " icon-gr-tools"
+  }), _vm._v(" "), _c('a', {
+    attrs: {
+      "href": '/pump/' + _vm.formUpdate.id
+    }
+  }, [_vm._v("Repair")])]), _vm._v(" "), _vm._m(5)]) : _vm._e(), _vm._v(" "), (_vm.edit) ? _c('button', {
     staticClass: "buttonBottom",
     on: {
       "click": _vm.update
@@ -3479,12 +3489,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('i', {
-    staticClass: " icon-gr-tools"
-  }), _vm._v(" "), _c('a', [_vm._v("Repair")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('i', {
     staticClass: " icon-gr-sustainable"
-  }), _vm._v(" "), _c('a', [_vm._v("Upgrade")])])
+  }), _vm._v(" "), _c('a', {
+    attrs: {
+      "href": "/upgrade"
+    }
+  }, [_vm._v("Upgrade")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
