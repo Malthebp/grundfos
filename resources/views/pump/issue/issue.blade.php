@@ -12,7 +12,7 @@
 
 <main id="withMargin" class="pump">
 	<section class="">
-		<img src="" alt="">
+		<img src="../{{$issue->imagepath}}" alt="">
 		<article>
 			<h3>{{$issue->name}}</h3>
 			<p>{{$issue->description}}</p>

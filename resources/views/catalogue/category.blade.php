@@ -15,7 +15,7 @@ Pumps
 		<h2>Pumps</h2>
 		@foreach ($category as $row)
 		@for ($i = 0; $i <= count($row->pump)-1; $i++)
-		<a href="../pump/{{$row->id}}">
+		<a href="../pump/{{$row->pump[$i]->id}}">
 			<article class="category categoryFlex">
 				<img class="pumpImage" src="{{$row->pump[$i]->imagepath}}">
 				<div class="description">

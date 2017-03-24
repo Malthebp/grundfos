@@ -604,6 +604,10 @@ main#register, main#login, main#forgot {
 				color: $brand-primary;
 			}
 		}
+		a {
+			text-decoration: none;
+			display: block;
+		}
 	}
 	.expandable:hover .dropdown-content {
 		display: block;
