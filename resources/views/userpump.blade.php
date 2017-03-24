@@ -5,8 +5,8 @@
 				<i class="icon-gr-user"></i>
 			</div>
 			<div>
-				<label for="name">Name</label>
-				<input v-if="edit" type="text" name="name" id="name" placeholder="John Doe" v-model="formUpdate.name"> 
+				<label for="name">Model number</label>
+				<input v-if="edit" type="text" name="name" id="name" placeholder="name xx-xx xxx" v-model="formUpdate.name"> 
 				<h4 v-if="!edit">{{formUpdate.name}}</h4>
 			</div>
 		</section>
@@ -15,29 +15,9 @@
 				<i class="icon-gr-location"></i>
 			</div>
 			<div>
-				<label for="address">Address of client</label>
+				<label for="address">Address of pump</label>
 				<input v-if="edit" type="text" name="address" placeholder="Ex. Ringvej syd 104, 8260 Viby J" id="address" v-model="formUpdate.address">
 				<h4 v-if="!edit">{{formUpdate.address}}</h4>
-			</div>
-		</section>
-		<section>
-			<div>
-				<i class="icon-gr-call"></i>
-			</div>
-			<div>
-				<label for="phone">Telephone</label>
-				<input v-if="edit" type="text" name="phone" placeholder="Ex. +45 88 88 88 88" id="phone" v-model="formUpdate.phone">
-				<h4 v-if="!edit">{{formUpdate.phone}}</h4>
-			</div>
-		</section>
-		<section>
-			<div>
-				<i class="icon-gr-mail-contact"></i>
-			</div>
-			<div>
-				<label for="email">Email</label>
-				<input v-if="edit" type="text" name="email" placeholder="Ex. john@doe.com" id="email" v-model="formUpdate.email">
-				<h4 v-if="!edit">{{formUpdate.email}}</h4>
 			</div>
 		</section>
 		<section>
@@ -46,33 +26,25 @@
 			</div>
 			<div>
 				<label for="description">Description</label>
-				<input v-if="edit" type="text" name="description" placeholder="Ex. Call 10 min before arrival" id="description" v-model="formUpdate.description">
+				<input v-if="edit" type="text" name="description" placeholder="at front door, in basement" id="description" v-model="formUpdate.description">
 				<h4 v-if="!edit">{{formUpdate.description}}</h4>
 			</div>
 		</section>
-		<!-- <section v-for="upump in userpumps.upumps">
+
+		<section>
 			<div>
 				<i class="icon-gr-doc-text"></i>
 			</div>
 			<div>
-				<label >Pumps</label>
-				<h4>
-					<a :href="'/userpump/'+upump.id">{{upump.description}}</a>
-				</h4>
-			</div>
-		</section> -->
-		<a href="/newpump">
-			<div class="addArea">
-				
+				<label for="client">client</label>
+				<div class="addArea" @click="modal">
 					<i class="icon-gr-plus-circle"></i>
-					<p>Add new pump</p>
-				
+					<p>Add pumpt to client</p>
+				</div>	
 			</div>
-		</a>
-		<div class="addArea" @click="modal">
-			<i class="icon-gr-plus-circle"></i>
-			<p>Add existing pump</p>
-		</div>
+		</section>
+
+
 
 		<button @click="update" v-if="edit" class="buttonBottom">
 			<i v-if="!isLoading" class="icon-gr-check"></i>
@@ -83,32 +55,13 @@
 				<i class="icon-gr-clockwise animate-spin"></i>
 			</div>
 		</button>
-		<div class="nav-bot-2" v-if="!edit">
-	<!-- edit button -->
-		<div @click="editForm">
-			<i class=" icon-gr-edit-write"></i>
-			<a>Edit</a>
+		<div v-if="message" class="alert success">
+			<h4>{{message}}</h4>
 		</div>
-		
-	<!-- delete button -->
-		<div>
-			<i class="icon-gr-trash"></i>
-			<a :href="'/client/delete/'+clientid" v-if="!edit">Delete</a>
-		<!-- <button v-if="!edit" @click="editForm">Edit</button> -->
-		</div>
+		<a :href="'/client/delete/'+userid" v-if="!edit">Delete</a>
+		<button v-if="!edit" @click="editForm">Edit</button>
 
-	<!-- repair button -->
-		<div>
-			<i class=" icon-gr-tools"></i>
-			<a>Repair</a>
-		</div>
 
-	<!-- upgrade button -->
-		<div>
-			<i class=" icon-gr-sustainable"></i>
-			<a>Upgrade</a>
-		</div>
-</div>
 		<div :class="{modal, isActive: active}">
 		  <div class="modalBackground" @click="modal"></div>
 		  <div class="modalContent">
@@ -174,10 +127,10 @@
 				axios.post('/client/upump/attach', {'upumpid': this.chosen, 'clientid': this.clientid}).then(response => {
 						this.active = false;
 						this.isLoading = false;
-						this.getClient();
 				});
 			},
 			getClient: function () {
+				
 				axios.get('/client/get/' + this.clientid).then(response => {
 					this.formUpdate.name = response.data.client.name;
 					this.formUpdate.address = response.data.client.address;

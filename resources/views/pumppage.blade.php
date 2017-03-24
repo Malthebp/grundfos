@@ -15,7 +15,7 @@
 
 @section('content')
 <main >
-	{{$pump->description}}
+	<pumppage :pumpid="{{$pump->id}}" :userid="{{Auth::id()}}"></pumppage>
 </main>
 @endsection
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('headerLeft')
-    <a href="{{URL::previous()}}">
+    <a href="/catalogue">
 		<i class=" icon-gr-left-angle" aria-hidden="true"></i>
 	</a>
 @endsection

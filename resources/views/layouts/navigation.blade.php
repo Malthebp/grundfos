@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="http://www.grundfos.com/">
                     <img src="images/logo-icon.png">
                     <p>Grundfos</p>
                 </a>

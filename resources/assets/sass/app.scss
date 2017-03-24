@@ -92,7 +92,7 @@ header {
 }
 
 
-/*SEARBAR*/
+/*SEARCHBAR*/
 .search {
 	width: 100%;
 	background: $brand-tertiary;
@@ -148,7 +148,7 @@ nav.bottomNav {
 				}
 				img {
 					height: auto;
-					width: 39%;
+					width: 30%;
 					margin: 0 auto;
 					display: block;
 				}
@@ -157,6 +157,39 @@ nav.bottomNav {
 	}
 }
 
+/*BOTTOM NAVIGATION 2*/
+.nav-bot-2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: $grey-verylight;
+	div {
+		border-right: 1px solid $grey-lightmid;
+		border-top: 1px solid $grey-lightmid;
+		color:$brand-primary;
+		width:25%;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-top:5px;
+		padding-bottom:5px;
+		font-size:1.1rem;
+		a {
+			color:$brand-primary;
+		}
+	}
+	div:last-child {
+		color:$brand-success;
+		a {
+			color:$brand-success;
+		}
+	}
+	
+}
 
 /*SEARCH RESULT FOR CATEFGORY*/
 .searchResultCategory {
@@ -166,7 +199,9 @@ nav.bottomNav {
 		font-size: 1.3rem;
 		border-bottom: 2px solid $grey-lightmid;
 	}
-
+	a {
+		color:$grey-verydark;
+	}
 	article:last-child {
 		border-bottom: 1px solid $grey-lightmid;
 	}
@@ -221,6 +256,22 @@ nav.bottomNav {
 	}
 }
 
+/*USER PUMP TOP*/
+.userPumpPhoto {
+    border-bottom: 1px solid $grey-lightmid;
+	img {
+		width:100%;
+		height:55px;
+	}
+	div {
+		position:absolute;
+		z-index:2;
+		right:0;
+		outline:none;
+		width:30% !important;
+	}
+}
+
 .select-cat-btn {
 	border-radius: 200px 200px 200px 200px;
 	-moz-border-radius: 200px 200px 200px 200px;
@@ -248,7 +299,7 @@ nav.bottomNav {
 		color: $grey-dark;
 	}
 		i {
-		color: $brand-success;
+		color: $brand-success !important;
 		}
 		div {
 		width: 50%;
@@ -556,4 +607,42 @@ main#register, main#login, main#forgot {
 	.expandable:hover .dropdown-content {
 		display: block;
 	}
+}
+
+/* UPGRADE */
+.upgradeWrapper {
+	h2 {
+		text-align: center;
+		margin-top:15px;
+		color:$brand-primary;
+	}
+	section {
+		display: flex;
+  		flex-direction: row;
+  		align-items: center;
+  		margin:50px 15px 15px 15px;
+  		img {
+  			margin-right:30px;
+  			width:80%;
+  		}
+  		div {
+  			width:50%;
+  			img {
+  				justify-content:flex-start;
+  				width:70%;
+  			}
+  		}
+  		p {
+  			width:50%;
+  		}
+	}
+}
+#lastSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	img {
+		width:50%;
+	}
+
 }

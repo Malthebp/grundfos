@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/logout', function() {
 	Auth::logout();
+	return redirect('/');
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -36,7 +37,10 @@ Route::group(['middleware' => ['auth']], function () {
 	//Userpumps
 	Route::get('/userpump/{id}', 'UPumpController@getPump');
 	Route::get('/userpumps/getall/{id}', 'UPumpController@getAllUpumpsfromUser');
-
+	Route::get('/userpump/get/{id}', 'UPumpController@getUpump');
+	Route::patch('/userpump/update/{id}', 'UPumpController@update');
+	Route::get('/userpump/delete/{id}', 'UPumpController@delete');
+	Route::post('/userpump/upump/attach', 'UPumpController@attachUPump');
 
 	//New client
 	Route::get('/newclient', 'NewClientController@newClient');
@@ -59,8 +63,26 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/catalogue', 'CatalogueController@index');
 
 	Route::get('/pump/{id}', 'PumpController@getPump');
+	Route::get('/pump/issue/{id}', 'PumpController@getIssue');
 
 	Route::get('/catalogue/{id}', 'CatalogueController@getCategory');
+
+	//User 
+	Route::get('/user', 'UserController@getUser');
+	//Issue
+	Route::get('/issue', function(){
+		return view('issue');
+	});
+
+	//Upgrade
+	Route::get('/upgrade', function(){
+		return view('upgrade');
+	});
+
+	//profile
+	Route::get('/profile', function(){
+		return view('profile');
+	});
 
 });
 

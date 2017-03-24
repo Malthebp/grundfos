@@ -1,35 +1,22 @@
 @extends('layouts.app')
 @section('headerLeft')
-	<a href="/catalogue/{{$pump->category_id}}">
+	<a href="{{URL::previous()}}">
         <i class=" icon-gr-left-angle" aria-hidden="true"></i>
     </a>
 @endsection
 @section('headline')
-{{$pump->name}}
+{{$issue->name}}
 @endsection
 
 @section('content')
 
 <main id="withMargin" class="pump">
 	<section class="">
-		<img src="{{$pump->imagepath}}" alt="">
+		<img src="" alt="">
 		<article>
-			<h3>{{$pump->name}}</h3>
-			<p>{{$pump->description}}</p>
+			<h3>{{$issue->name}}</h3>
+			<p>{{$issue->description}}</p>
 		</article>
-		
-		<div class="expandable">
-			<h4 class="icon-gr-problem-warning">Issues</h4>
-			<div class="icon-gr-right-triangle icon-right"></div>
-			@foreach ($issues as $issue)
-			<a href="issue/{{$issue->id}}">
-			<div class="dropdown-content">
-				<p class="text-left">{{$issue->name}}</p>
-				<div class="icon-gr-right-angle icon-right"></div>
-			</div>
-			</a>
-			@endforeach
-		</div>
 		<div class="expandable">
 			<h4 class="icon-gr-service">Tools</h4>
 			<div class="icon-gr-right-triangle icon-right"></div>
